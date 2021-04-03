@@ -6,6 +6,7 @@
 /*                             TODO: Description.                             */
 /* -------------------------------------------------------------------------- */
 
+activeColour = "";
 
 /* --------------------------- Handle keypresses. --------------------------- */
 $(document).on("click", ".key", function () {
@@ -15,20 +16,70 @@ $(document).on("click", ".key", function () {
   var keyboardId = $(this).parent().parent().parent().attr('id');
   var keyboard = $(document).find("#" + keyboardId);
   var key;
+  var animateKey = true;
 
   if (keyboardId != undefined) {
     // Find key on specific keyboard.
     key = $(keyboard).find("[data-key=" + dataKey + "]")
+
+    if (activeColour == "") {
+      // If a colour button is not selected add new text.
+      var currentText = $(key).find(".userText").text();
+      var newKeyText = prompt("Please enter new text for the key.", currentText);
+      if (newKeyText != null) {
+        $(key).find(".userText").text(newKeyText);
+      }
+    } else {
+      // If a colour button is selected change key colour.
+
+      // 1) remove akk classes containing substring 'key--colour'
+      $(key).removeClass(function (index, css) {
+        return (css.match(/(^|\s)key--colour\S+/g) || []).join(' ');
+      });
+
+      if (activeColour != "NONE") {
+        $(key).addClass(activeColour);
+      }
+    }
+
   } else {
-    // A manu key, not on a keyboard.
+    // A menu key, not on a keyboard.
     key = $("[data-key=" + dataKey + "]");
 
     // Check for a colour selection button.
     if (dataKey.includes("Colour")) {
-      // Currently does nothing.
-      // Could be a colour pallet, or allow custom selection of colours in the
-      // future.
+      switch (dataKey) {
+        case "ColourCoral":
+          activeColour = "key--colour--coral";
+          break;
+        case "ColourBlue":
+          activeColour = "key--colour--blue";
+          break;
+        case "ColourNavy":
+          activeColour = "key--colour--navy";
+          break;
+        case "ColourGreen":
+          activeColour = "key--colour--green";
+          break;
+        case "ColourOrange":
+          activeColour = "key--colour--orange";
+          break;
+        case "ColourNone":
+          activeColour = "NONE";
+          break;
+      }
+      // Creates a toggle effect for each colour button.
+      if (key.hasClass("key--pressed")) {
+        $("[data-key*='Colour']").removeClass("key--pressed");
+        activeColour = "";
+      }
+      else {
+        $("[data-key*='Colour']").removeClass("key--pressed");
+        key.addClass("key--pressed");
+      }
+      animateKey = false;
     }
+
     // Check for a main menu button.
     else if (dataKey.includes("Main")) {
       switch (key.attr('data-key')) {
@@ -47,6 +98,7 @@ $(document).on("click", ".key", function () {
           break;
       }
     }
+
     // Check add element keys.
     else if (dataKey == "AddSectionDivider") {
       addSectionDivider();
@@ -59,7 +111,9 @@ $(document).on("click", ".key", function () {
     }
   }
 
-  animate(key)
+  if (animateKey) {
+    animate(key)
+  }
 });
 /* -------------------------------------------------------------------------- */
 
