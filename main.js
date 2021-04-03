@@ -181,68 +181,31 @@ $.fn.moveDown = function () {
 
 /* -------------------------- Save to HTML function ------------------------- */
 function saveToHtml() {
-  // CSS from site.css
 
-  // .bodyStyle {
-  //   width:1109px; 
-  //   margin:0 auto;
-  // }
-  // h1 {
-  //   text-align: center;
-  //   padding-top: 20px;
-  //   font-size: 48px;
-  //   font-weight: 500;
-  // }
-  // h2 {
-  //   font-size: 24px;
-  //   margin-bottom: 7px;
-  // }
-  // h3 {
-  //   font-size: 20px;
-  // }
-
-  // All css from keyboard and keyboard-colours
-
-  // var GetFileBlobUsingURL = function (url, convertBlob) {
-  //   var xhr = new XMLHttpRequest();
-  //   xhr.open("GET", url);
-  //   xhr.responseType = "blob";
-  //   xhr.addEventListener('load', function () {
-  //     convertBlob(xhr.response);
-  //   });
-  //   xhr.send();
-  // };
-
-  // var blobToFile = function (blob, name) {
-  //   blob.lastModifiedDate = new Date();
-  //   blob.name = name;
-  //   return blob;
-  // };
-
-  // var GetFileObjectFromURL = function (filePathOrUrl, convertBlob) {
-  //   GetFileBlobUsingURL(filePathOrUrl, function (blob) {
-  //     convertBlob(blobToFile(blob, 'testFile.jpg'));
-  //   });
-  // };
-  // var FileURL = "site.css"
-  // GetFileObjectFromURL(FileURL, function (fileObject) {
-  //   // console.log(fileObject);
-  //   var frSite = new FileReader();
-  //   frSite.onload = function () {
-  //     console.log(frSite.result);
-  //   }
-
-  //   frSite.readAsText(fileObject);
-  // });
-
+  var parser = new DOMParser();
+  var outfile = parser.parseFromString("", "text/html");
+  console.log(outfile);
 
   $.when($.get("site.css"))
     .done(function (response) {
       console.log(response);
-      // $('<style />').text(response).appendTo($('head'));
+      $('<style />').text(response).appendTo($(outfile).find('head'));
+      // $('div').html(response);
+    });
+  $.when($.get("keyboard.css"))
+    .done(function (response) {
+      console.log(response);
+      $('<style />').text(response).appendTo($(outfile).find('head'));
+      // $('div').html(response);
+    });
+  $.when($.get("key-colours.css"))
+    .done(function (response) {
+      console.log(response);
+      $('<style />').text(response).appendTo($(outfile).find('head'));
       // $('div').html(response);
     });
 
+  console.log(outfile);
 
 
 }
