@@ -1,0 +1,293 @@
+/* -------------------------------------------------------------------------- */
+/*                                keyboard.css                                */
+/* -------------------------------------------------------------------------- */
+/*                        Original Author: Guido Torres                       */
+/*              (https://github.com/guido732/mechanical-keyboard)             */
+/* -------------------------------------------------------------------------- */
+/*                           Edited by: Archie Adams                          */
+/* -------------------------------------------------------------------------- */
+/*    Adapted version of the CSS originally created by Guido Torres for the   */
+/*                appearance of the mechanical style keyboards.               */
+/* -------------------------------------------------------------------------- */
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  background: linear-gradient(165deg, #1d4f71 0%, #122430 100%);
+  font-family: "Baloo 2", cursive;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: visible;
+}
+
+.keyboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  border-radius: 0.5rem;
+  border-top: 0.75rem solid #3d779e;
+  border-right: 0.75rem solid #36698b;
+  border-left: 0.75rem solid #36698b;
+  border-bottom: 0.75rem solid #25485f;
+  width: 1109px;
+  margin:auto;
+  margin-bottom: 30px;
+}
+
+.keyboardBorderStyle {
+  border-radius: 0.5rem;
+  border-top: 0.75rem solid #3d779e;
+  border-right: 0.75rem solid #36698b;
+  border-left: 0.75rem solid #36698b;
+  border-bottom: 0.75rem solid #25485f;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.SixButtons {
+  width: 822px;
+}
+.FiveButtons {
+  width: 688px;
+}
+.ThreeButtons {
+  width: 421px;
+}
+
+.keyboard::before {
+  content: "";
+  position: absolute;
+  bottom: -1.5rem;
+  left: -0.75rem;
+  width: calc(100% + (1.5rem));
+  height: 2rem;
+  z-index: -1;
+  background-color: #122430;
+  border-bottom-left-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  -webkit-box-shadow: 0 1.5rem 2rem 0rem #172635;
+          box-shadow: 0 1.5rem 2rem 0rem #172635;
+}
+
+.keyboard__section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #122430;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.25rem 0 0.25rem;
+}
+
+.keyboard__section:last-child {
+  padding-left: 0;
+}
+.keyboard__section:first-child {
+  padding-right: 0;
+}
+
+.keyboard__section--vertical {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.keyboard__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin-bottom: 0.25rem;
+  position: relative;
+}
+
+.keyboard__row--vertical {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 0.25rem;
+}
+
+.keyboard__row--vertical:last-child {
+  margin-right: 0;
+}
+
+.keyboard__corner {
+  width: 0.25rem;
+  height: 1rem;
+  background: #122430;
+  position: absolute;
+}
+.keyboard__corner--tl {
+  top: 2px;
+  left: 0px;
+  -webkit-transform: rotate(-225deg);
+          transform: rotate(-225deg);
+  -webkit-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+}
+.keyboard__corner--tr {
+  top: 2px;
+  right: 0px;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  -webkit-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+}
+.keyboard__corner--bl {
+  bottom: 2px;
+  left: 0px;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+}
+.keyboard__corner--br {
+  bottom: 2px;
+  right: 0px;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+}
+
+.keyboard.large .keyboard-short-only {
+  display: none;
+}
+
+.key {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-right: 0.25rem;
+  padding: 0.15rem 0.1rem;
+  color: #06112e; /* Default key text colour */
+  font-size: 0.7rem;
+  font-weight: 500;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background: -webkit-gradient(linear, left top, right top, from(#e1e1e1), color-stop(30%, #f0f0f0), color-stop(60%, #f0f0f0), to(#e6e6e6));
+  background: linear-gradient(90deg, #e1e1e1 0%, #f0f0f0 30%, #f0f0f0 60%, #e6e6e6);
+  border-radius: 0.3125rem 0.3125rem 0.5rem 0.5rem;
+  border-top: 0.15rem solid #d7d7d7;
+  border-right: 0.35rem solid gainsboro;
+  border-left: 0.35rem solid gainsboro;
+  border-bottom: 0.6rem solid #cfcfcf;
+  -webkit-box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #f3f3f3;
+          box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #f3f3f3;
+}
+
+.key:last-child {
+  margin-right: 0;
+}
+
+.key--2 {
+  width: 5.0625rem;
+}
+.key--3 {
+  width: 6.125rem;
+}
+.key--4 {
+  width: 7.1875rem;
+}
+.key--5 {
+  width: 8.25rem;
+}
+.key--6 {
+  width: 9.3125rem;
+}
+.key--7 {
+  width: 11.4375rem;
+  margin-right: 0;
+}
+.key--8 {
+  width: 26.3125rem;
+}
+
+.key--vert {
+  margin-bottom: 0.25rem;
+  margin-right: 0;
+}
+.key--vert:last-child {
+  margin-bottom: 0;
+}
+.key--vert.key--5 {
+  width: 4rem;
+  height: 8.25rem;
+}
+
+.key--pressed {
+  -webkit-transform: translateY(0.2rem);
+          transform: translateY(0.2rem);
+  -webkit-transition: -webkit-transform 0.05s;
+  transition: -webkit-transform 0.05s;
+  transition: transform 0.05s;
+  transition: transform 0.05s, -webkit-transform 0.05s;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.vert-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.text-lg {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.hidden {
+  visibility:hidden;
+}

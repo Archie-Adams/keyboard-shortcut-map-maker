@@ -1,0 +1,141 @@
+/* -------------------------------------------------------------------------- */
+/*                                  site.css                                  */
+/* -------------------------------------------------------------------------- */
+/*                            Author: Archie Adams                            */
+/* -------------------------------------------------------------------------- */
+/*                Styling for the general objects on the site.                */
+/* -------------------------------------------------------------------------- */
+
+/* Header styling.*/
+header {
+  background-color: #b4b3bd;
+  font-size: 48px;
+  font-weight: 500;
+}
+header h1 {
+  margin: 0;
+}
+header h2 {
+  text-align: center;
+}
+
+.ulButtons ul {
+  margin: 0;
+  list-style-type: none; 
+  text-align: center; 
+  background-color: #b4b3bd;
+}
+.ulButtons ul li {
+  display: inline;
+}
+.ulButtons ul li div {
+  padding: 10px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+kbd {
+  margin: 0px 0.1em;
+  padding: 0.1em 0.6em;
+  border-radius: 3px;
+  border: 1px solid rgb(204, 204, 204);
+  color: rgb(51, 51, 51);
+  line-height: 1.4;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 10px;
+  display: inline-block;
+  box-shadow: 0px 1px 0px rgba(0,0,0,0.2), inset 0px 0px 0px 2px #ffffff;
+  background-color: rgb(247, 247, 247);
+  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #ffffff inset;
+  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #ffffff inset;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  text-shadow: 0 1px 0 #fff;
+  transform: translateY(-0.2rem);
+}
+
+/* Main body styling */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffff;
+}
+
+.bodyStyle {
+  /* width:1154px;  */
+  width:1109px; 
+  margin:0 auto;
+}
+
+/* Footer styling. */
+footer {
+  background-color: #b4b3bd; 
+  margin-top: 20px; 
+  margin-bottom: 0;
+}
+
+footer address {
+  background-color: #b4b3bd; padding-top:20px; padding-bottom:20px;
+}
+
+.footer-div {
+  width:960px;
+  margin:0 auto; 
+  background-color: #b4b3bd;
+}
+
+#to-top-button{
+  margin-left:426px; 
+  padding-top: 14px;
+}
+#to-top-input {
+  width: 110px;
+}
+
+.protectFooter {
+  clear:both;
+}
+
+/* Heading styling. */
+h1 {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 48px;
+  font-weight: 500;
+}
+h2 {
+  font-size: 24px;
+  margin-bottom: 7px;
+}
+h3 {
+  font-size: 20px;
+}
+li span {
+  font-size: 18px;
+}
+ol{
+  list-style-type: none;
+}
+
+/* Font styling. */
+* {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-size: 14px;
+}
+.light {
+  font-weight: 300;
+}
+.regular {
+  font-weight: 400;
+}
+.semibold {
+  font-weight: 600;
+}
+
+.up, .down        { cursor: pointer; }
+.up:after         { content: '△'; }
+.up:hover:after   { content: '▲'; }
+.down:after       { content: '▽'; }
+.down:hover:after { content: '▼'; }

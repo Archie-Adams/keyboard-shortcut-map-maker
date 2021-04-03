@@ -1,0 +1,88 @@
+/* -------------------------------------------------------------------------- */
+/*                                keyboard.css                                */
+/* -------------------------------------------------------------------------- */
+/*                        Original Author: Guido Torres                       */
+/*              (https://github.com/guido732/mechanical-keyboard)             */
+/* -------------------------------------------------------------------------- */
+/*                           Edited by: Archie Adams                          */
+/* -------------------------------------------------------------------------- */
+/*          A selection classes which will change the colour of keys.         */
+/* -------------------------------------------------------------------------- */
+
+.key--colour--coral {
+  color: #f0f0f0;
+  background: -webkit-gradient(linear, left top, right top, from(#e97b67), color-stop(30%, #ed9282), color-stop(60%, #ed9282), to(#ea8270));
+  background: linear-gradient(90deg, #e97b67 0%, #ed9282 30%, #ed9282 60%, #ea8270);
+  border-radius: 0.3125rem 0.3125rem 0.5rem 0.5rem;
+  border-top: 0.15rem solid #e76b55;
+  border-right: 0.35rem solid #e8735e;
+  border-left: 0.35rem solid #e8735e;
+  border-bottom: 0.6rem solid #da6753;
+  -webkit-box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #ee9686;
+          box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #ee9686;
+}
+
+.key--colour--navy {
+  color: #f0f0f0;
+  background: -webkit-gradient(linear, left top, right top, from(#264a63), color-stop(30%, #2f5b79), color-stop(60%, #2f5b79), to(#29506a));
+  background: linear-gradient(90deg, #264a63 0%, #2f5b79 30%, #2f5b79 60%, #29506a);
+  border-radius: 0.3125rem 0.3125rem 0.5rem 0.5rem;
+  border-top: 0.15rem solid #213f54;
+  border-right: 0.35rem solid #24455c;
+  border-left: 0.35rem solid #24455c;
+  border-bottom: 0.6rem solid #223644;
+  -webkit-box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #305e7d;
+          box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #305e7d;
+}
+
+.key--colour--green {
+  color: #eae7e1;
+  background: -webkit-gradient(linear, left top, right top, from(#237465), color-stop(30%, #2a8c79), color-stop(60%, #2a8c79), to(#257c6b));
+  background: linear-gradient(90deg, #237465 0%, #2a8c79 30%, #2a8c79 60%, #257c6b);
+  border-radius: 0.3125rem 0.3125rem 0.5rem 0.5rem;
+  border-top: 0.15rem solid #1e6557;
+  border-right: 0.35rem solid #216d5e;
+  border-left: 0.35rem solid #216d5e;
+  border-bottom: 0.6rem solid #205349;
+  -webkit-box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #2b907c;
+          box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #2b907c;
+}
+
+.key--colour--orange {
+  color: #f7f6f4;
+  background: -webkit-gradient(linear, left top, right top, from(#f35b24), color-stop(30%, #f57141), color-stop(60%, #f57141), to(#f4632e));
+  background: linear-gradient(90deg, #f35b24 0%, #f57141 30%, #f57141 60%, #f4632e);
+  border-radius: 0.3125rem 0.3125rem 0.5rem 0.5rem;
+  border-top: 0.15rem solid #f24d11;
+  border-right: 0.35rem solid #f3541a;
+  border-left: 0.35rem solid #f3541a;
+  border-bottom: 0.6rem solid #db4c18;
+  -webkit-box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #f57546;
+          box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #f57546;
+}
+
+.key--colour--blue {
+  color: #f7f6f4;
+  background: -webkit-gradient(linear, left top, right top, from(#2c9ce5), color-stop(30%, #47a9e8), color-stop(60%, #47a9e8), to(#35a1e6));
+  background: linear-gradient(90deg, #2c9ce5 0%, #47a9e8 30%, #47a9e8 60%, #35a1e6);
+  border-radius: 0.3125rem 0.3125rem 0.5rem 0.5rem;
+  border-top: 0.15rem solid #1c93e0;
+  border-right: 0.35rem solid #2398e3;
+  border-left: 0.35rem solid #2398e3;
+  border-bottom: 0.6rem solid #2688c7;
+  -webkit-box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #4cabe9;
+          box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #4cabe9;
+}
+
+.key--disabled {
+  color: #f7f6f4;
+  background: -webkit-gradient(linear, left top, right top, from(#9ca8b1), color-stop(30%, #94a4ad), color-stop(60%, #94a4ad), to(#9ca8b1));
+  background: linear-gradient(90deg, #94a4ad 0%, #94a4ad 30%, #94a4ad 60%, #94a4ad);
+  border-radius: 0.3125rem 0.3125rem 0.5rem 0.5rem;
+  border-top: 0.15rem solid #94a4ad;
+  border-right: 0.35rem solid #81868a;
+  border-left: 0.35rem solid #81868a;
+  border-bottom: 0.6rem solid #81868a;
+  -webkit-box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #94a4ad;
+          box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #94a4ad;
+}
