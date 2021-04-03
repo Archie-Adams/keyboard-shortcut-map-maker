@@ -214,6 +214,10 @@
   -webkit-box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #f3f3f3;
           box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5), inset -1px -1px 5px 0 #f3f3f3;
 }
+.userText {
+  font-size: 0.7rem;
+  font-weight: 500;
+}
 
 .key:last-child {
   margin-right: 0;
