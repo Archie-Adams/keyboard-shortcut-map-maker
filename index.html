@@ -44,11 +44,14 @@
 
   <h2 id="loadedFileHeader">Example.txt</h2>
 
-  <div class="keyboardBorderStyle ulButtons SixButtons">
+  <div class="keyboardBorderStyle ulButtons FiveButtons">
     <ul>
       <li>
         <!-- TODO: Read data from txt file. -->
-        <div data-key="MainLoadTxt" class="key text-lg vert-center text-center key--6">Load txt</div>
+        <!-- <div data-key="MainLoadHtml" class="key text-lg vert-center text-center key--6">Load from HTML</div> -->
+        <label for="inputfile" data-key="MainLoadHtml" class="key text-lg vert-center text-center key--6">Load from
+          HTML</label>
+        <input type="file" name="inputfile" id="inputfile" style="display: none;">
       </li>
       <li>
         <!-- TODO: Implement new keyboard set creation. -->
@@ -56,17 +59,13 @@
         <div data-key="MainNewSet" class="key text-lg vert-center text-center key--6">Create new set</div>
       </li>
       <li>
-        <!-- TODO: Save data to txt file. -->
-        <div data-key="MainSaveTxt" class="key text-lg vert-center text-center key--6">Save to txt</div>
+        <!-- TODO: Generate HTML output. -->
+        <div data-key="MainSaveHTML" class="key text-lg vert-center text-center key--6">Save to HTML</div>
       </li>
       <li>
         <!-- TODO: Save keyboards to an image. -->
         <div data-key="MainSavePng" class="key text-lg vert-center text-center key--6 key--disabled">Save to
           png</div>
-      </li>
-      <li>
-        <!-- TODO: Generate HTML output. -->
-        <div data-key="MainSaveHTML" class="key text-lg vert-center text-center key--6">Save to HTML</div>
       </li>
       <li>
         <div data-key="MainPrint" class="key text-lg vert-center text-center key--6 key--disabled">
@@ -93,6 +92,8 @@
       <!--     - Have a button to hide. -->
     </div>
 
+    <pre id="output"></pre>
+
     <!-- TODO: Have two or three example keyboards styled. -->
     <!-- Make these unmodifiable. -->
 
@@ -101,6 +102,7 @@
       <li>
         <span class="up" onclick="$(this.parentNode).moveUp();"></span>
         <span class="down" onclick="$(this.parentNode).moveDown();"></span>
+        <!-- TODO: Make editable on click. -->
         <h3 style="float: left;">10-Keyless Keyboard</h3>
         <p style="float: right; font-size: 18px;" onclick="removeKeyboard($(this.parentNode));">🚮</p>
         <div id="kbd1" class="keyboard large">
@@ -856,6 +858,8 @@
 
     <p style="max-width: 300px;"><a href="https://github.com/guido732/mechanical-keyboard">Keyboard</a> inspiration: <a
         href="https://github.com/guido732">Guido Torres</a></p>
+
+    <button onclick="saveToHtml();">click</button>
 
     <div style="padding-bottom: 20px;"></div>
 

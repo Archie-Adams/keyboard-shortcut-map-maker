@@ -83,11 +83,9 @@ $(document).on("click", ".key", function () {
     // Check for a main menu button.
     else if (dataKey.includes("Main")) {
       switch (key.attr('data-key')) {
-        case "MainLoadTxt":
+        case "MainLoadHtml":
           break;
         case "MainNewSet":
-          break;
-        case "MainSaveTxt":
           break;
         case "MainSavePng":
           break;
@@ -179,3 +177,96 @@ $.fn.moveDown = function () {
 
 // TODO: Implement drag and drop.
 /* -------------------------------------------------------------------------- */
+
+
+/* -------------------------- Save to HTML function ------------------------- */
+function saveToHtml() {
+  // CSS from site.css
+
+  // .bodyStyle {
+  //   width:1109px; 
+  //   margin:0 auto;
+  // }
+  // h1 {
+  //   text-align: center;
+  //   padding-top: 20px;
+  //   font-size: 48px;
+  //   font-weight: 500;
+  // }
+  // h2 {
+  //   font-size: 24px;
+  //   margin-bottom: 7px;
+  // }
+  // h3 {
+  //   font-size: 20px;
+  // }
+
+  // All css from keyboard and keyboard-colours
+
+  // var GetFileBlobUsingURL = function (url, convertBlob) {
+  //   var xhr = new XMLHttpRequest();
+  //   xhr.open("GET", url);
+  //   xhr.responseType = "blob";
+  //   xhr.addEventListener('load', function () {
+  //     convertBlob(xhr.response);
+  //   });
+  //   xhr.send();
+  // };
+
+  // var blobToFile = function (blob, name) {
+  //   blob.lastModifiedDate = new Date();
+  //   blob.name = name;
+  //   return blob;
+  // };
+
+  // var GetFileObjectFromURL = function (filePathOrUrl, convertBlob) {
+  //   GetFileBlobUsingURL(filePathOrUrl, function (blob) {
+  //     convertBlob(blobToFile(blob, 'testFile.jpg'));
+  //   });
+  // };
+  // var FileURL = "site.css"
+  // GetFileObjectFromURL(FileURL, function (fileObject) {
+  //   // console.log(fileObject);
+  //   var frSite = new FileReader();
+  //   frSite.onload = function () {
+  //     console.log(frSite.result);
+  //   }
+
+  //   frSite.readAsText(fileObject);
+  // });
+
+
+  $.when($.get("site.css"))
+    .done(function (response) {
+      console.log(response);
+      // $('<style />').text(response).appendTo($('head'));
+      // $('div').html(response);
+    });
+
+
+
+}
+/* -------------------------------------------------------------------------- */
+
+/* --------------------------- Load HTML Function --------------------------- */
+$(document).on("change", "#inputfile", function () {
+
+  // Clear the current list.
+  $(document).find("#KeyboardTable").empty();
+
+  var fr = new FileReader();
+  fr.onload = function () {
+
+    var string = fr.result;
+    var object = $('<div/>').html(string).contents();
+    $(document).find("#KeyboardTable").html(object.find("#KeyboardTable").html());
+
+    // Could just leave controls on and apply hidden class to them, unhide on load.
+    // Now need to add controls to the keyboards.
+  }
+
+  // console.log(this.files);
+  fr.readAsText(this.files[0]);
+})
+/* -------------------------------------------------------------------------- */
+

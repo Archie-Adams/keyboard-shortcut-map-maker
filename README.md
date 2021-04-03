@@ -7,7 +7,7 @@
 
 This is a website tool for creating a visual map/image of keyboard shortcuts.  
 
-It originally started as a tool to generate help pages for my [ahk-scripts]() project.
+It originally started as a tool to generate help pages for my [ahk-scripts](https://github.com/Archie-Adams/ahk-scripts) project.
 
 ---
 
