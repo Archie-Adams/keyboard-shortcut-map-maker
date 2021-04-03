@@ -1,7 +1,6 @@
-// TODO Site-Up Badge https://shields.io/category/monitoring  
-// TODO Licence https://shields.io/category/license  
-// TODO W3C Validation https://shields.io/category/analysis  
-// TODO GitHub Search https://shields.io/category/analysis  
+![Website](https://img.shields.io/website?url=https%3A%2F%2Farchie-adams.github.io%2Fkeyboard-shortcut-map-maker%2F)
+![GitHub](https://img.shields.io/github/license/archie-adams/keyboard-shortcut-map-maker)
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Farchie-adams.github.io%2Fkeyboard-shortcut-map-maker%2F)  
 
 
 # Keyboard Shortcut Map Maker
@@ -30,7 +29,7 @@ It originally started as a tool to generate help pages for my [ahk-scripts]() pr
 
 &nbsp;
 
-# [Live Site]()
+# [Live Site](https://archie-adams.github.io/keyboard-shortcut-map-maker/)
 
 # Images
 
