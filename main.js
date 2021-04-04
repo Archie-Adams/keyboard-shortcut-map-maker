@@ -193,7 +193,11 @@ function saveToHtml() {
   var parser = new DOMParser();
   var outfile = parser.parseFromString("", "text/html");
 
-  // TODO: Comment to say/link where made and where can be edited.
+  // Add comment at head of file telling user how to edit.
+  $(outfile).find('html').prepend(
+    '<!-- This file was made using: ' +
+    'https://archie-adams.github.io/keyboard-shortcut-map-maker/ It can be ' +
+    'edited by loading it with the same website. -->');
 
   // Add all meta tags to the head.
   $('head').find('meta').appendTo($(outfile).find('head'));
@@ -227,10 +231,9 @@ function saveToHtml() {
               $(outfile).find('.bodyStyle').append($(document).find('#KeyboardTable').clone());
 
               // Visually remove UI from keyboards.
-              $(outfile).find('li span').addClass('hidden');
+              $(outfile).find('li span:not(.userText)').addClass('hidden');
               $(outfile).find('li p').addClass('hidden');
 
-              // console.log(outfile);
 
               // Create and download the file
               let data = new XMLSerializer().serializeToString(outfile);
