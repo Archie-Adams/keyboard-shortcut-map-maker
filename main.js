@@ -46,6 +46,7 @@ $(document).on("click", ".key", function () {
     // A menu key, not on a keyboard.
     key = $("[data-key=" + dataKey + "]");
 
+    // TODO: Add a .colourkey and an event listen function, remove complexity from above.
     // Check for a colour selection button.
     if (dataKey.includes("Colour")) {
       switch (dataKey) {
@@ -83,6 +84,9 @@ $(document).on("click", ".key", function () {
     // Check for a main menu button.
     else if (dataKey.includes("Main")) {
       switch (key.attr('data-key')) {
+        // TODO: Probably un-needed. REMOVE
+        // Have a .menukey, .key on the key class so this function is not ran
+        // when menu keys are used.
         case "MainLoadHtml":
           break;
         case "MainNewSet":
@@ -90,14 +94,17 @@ $(document).on("click", ".key", function () {
         case "MainSavePng":
           break;
         case "MainSaveHTML":
+
           break;
         case "MainPrint":
+          // TODO: Have as onclick JS
           window.print();
           break;
       }
     }
 
     // Check add element keys.
+    // TODO: Change to event listeners on the functions.
     else if (dataKey == "AddSectionDivider") {
       addSectionDivider();
     }
@@ -182,53 +189,91 @@ $.fn.moveDown = function () {
 /* -------------------------- Save to HTML function ------------------------- */
 function saveToHtml() {
 
+  // Create new document.
   var parser = new DOMParser();
   var outfile = parser.parseFromString("", "text/html");
-  console.log(outfile);
 
+  // TODO: Comment to say/link where made and where can be edited.
+
+  // Add all meta tags to the head.
+  $('head').find('meta').appendTo($(outfile).find('head'));
+
+  // Add title to the head.
+  title = $(document).find('#loadedFileHeader').text();
+  $(outfile).find('head').append("<title>" + title + "</title>");
+
+  // Add css styling to the head.
   $.when($.get("site.css"))
     .done(function (response) {
-      console.log(response);
       $('<style />').text(response).appendTo($(outfile).find('head'));
-      // $('div').html(response);
-    });
-  $.when($.get("keyboard.css"))
-    .done(function (response) {
-      console.log(response);
-      $('<style />').text(response).appendTo($(outfile).find('head'));
-      // $('div').html(response);
-    });
-  $.when($.get("key-colours.css"))
-    .done(function (response) {
-      console.log(response);
-      $('<style />').text(response).appendTo($(outfile).find('head'));
-      // $('div').html(response);
-    });
+      $.when($.get("keyboard.css"))
+        .done(function (response) {
+          $('<style />').text(response).appendTo($(outfile).find('head'));
+          $.when($.get("key-colours.css"))
+            .done(function (response) {
+              $('<style />').text(response).appendTo($(outfile).find('head'));
 
-  console.log(outfile);
+              // FIXME: Nested due to async? function timings.
 
+              // Create the header.
+              $(outfile).find('head').after('<header></header>');
+              $('header').find('h1').appendTo($(outfile).find('header'));
+              $('header').find('h2').appendTo($(outfile).find('header'));
+              $(outfile).find('header').append('<div style=" padding-top: 1px;"></div>');
+
+              // Create the body.
+              $(outfile).find('body').append('<div style=" margin-top: 30px;" class="top-padding-50px"></div>');
+              $(outfile).find('body').append('<div class="bodyStyle"></div>');
+              $(outfile).find('.bodyStyle').append($(document).find('#KeyboardTable'));
+
+              // Visually remove UI from keyboards.
+              $(outfile).find('li span').addClass('hidden');
+              $(outfile).find('li p').addClass('hidden');
+
+              // console.log(outfile);
+
+              // Create and download the file
+              let data = new XMLSerializer().serializeToString(outfile);
+              const textToBLOB = new Blob([data], { type: 'text/html' });
+              let newLink = document.createElement("a");
+              newLink.download = title;
+
+              if (window.webkitURL != null) {
+                newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+              }
+              else {
+                newLink.href = window.URL.createObjectURL(textToBLOB);
+                newLink.style.display = "none";
+                document.body.appendChild(newLink);
+              }
+
+              newLink.click();
+            });
+        });
+    });
 
 }
 /* -------------------------------------------------------------------------- */
 
+
 /* --------------------------- Load HTML Function --------------------------- */
 $(document).on("change", "#inputfile", function () {
 
-  // Clear the current list.
+  // Clear the current keyboard list.
   $(document).find("#KeyboardTable").empty();
 
   var fr = new FileReader();
   fr.onload = function () {
 
+    // Set the document keyboard list to the read in keyboard list.
     var string = fr.result;
     var object = $('<div/>').html(string).contents();
     $(document).find("#KeyboardTable").html(object.find("#KeyboardTable").html());
 
-    // Could just leave controls on and apply hidden class to them, unhide on load.
-    // Now need to add controls to the keyboards.
+    // Unhide the controls on the keyboards.
+    $(document).find("#KeyboardTable li span").removeClass('hidden');
+    $(document).find("#KeyboardTable li p").removeClass('hidden');
   }
-
-  // console.log(this.files);
   fr.readAsText(this.files[0]);
 })
 /* -------------------------------------------------------------------------- */

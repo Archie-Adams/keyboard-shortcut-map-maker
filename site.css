@@ -126,3 +126,7 @@ ol{
 .up:hover:after   { content: '▲'; }
 .down:after       { content: '▽'; }
 .down:hover:after { content: '▼'; }
+
+.hidden {
+  display: none;
+}

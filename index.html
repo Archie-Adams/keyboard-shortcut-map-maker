@@ -42,13 +42,14 @@
 
   <h1 id="top">Keyboard Shortcut Map Maker</h1>
 
-  <h2 id="loadedFileHeader">Example.txt</h2>
+  <!-- TODO: Allow user to change. Add an edit icon in a smaller font to the end of the text. -->
+  <!-- Try to add the icon in css text transform so wont have to deal in save function? -->
+  <!-- Otherwise in save function just have title = title[0:-1] or JS equiv -->
+  <h2 id="loadedFileHeader">Example.html</h2>
 
   <div class="keyboardBorderStyle ulButtons FiveButtons">
     <ul>
       <li>
-        <!-- TODO: Read data from txt file. -->
-        <!-- <div data-key="MainLoadHtml" class="key text-lg vert-center text-center key--6">Load from HTML</div> -->
         <label for="inputfile" data-key="MainLoadHtml" class="key text-lg vert-center text-center key--6">Load from
           HTML</label>
         <input type="file" name="inputfile" id="inputfile" style="display: none;">
@@ -59,12 +60,12 @@
         <div data-key="MainNewSet" class="key text-lg vert-center text-center key--6">Create new set</div>
       </li>
       <li>
-        <!-- TODO: Generate HTML output. -->
-        <div data-key="MainSaveHTML" class="key text-lg vert-center text-center key--6">Save to HTML</div>
+        <div data-key="MainSaveHTML" class="key text-lg vert-center text-center key--6" onclick="saveToHtml();">Save to
+          HTML</div>
       </li>
       <li>
         <!-- TODO: Save keyboards to an image. -->
-        <div data-key="MainSavePng" class="key text-lg vert-center text-center key--6 key--disabled">Save to
+        <div data-key=" MainSavePng" class="key text-lg vert-center text-center key--6 key--disabled">Save to
           png</div>
       </li>
       <li>
@@ -858,8 +859,6 @@
 
     <p style="max-width: 300px;"><a href="https://github.com/guido732/mechanical-keyboard">Keyboard</a> inspiration: <a
         href="https://github.com/guido732">Guido Torres</a></p>
-
-    <button onclick="saveToHtml();">click</button>
 
     <div style="padding-bottom: 20px;"></div>
 
