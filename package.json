@@ -1,0 +1,23 @@
+{
+  "name": "keyboard-shortcut-map-maker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Archie-Adams/keyboard-shortcut-map-maker.git"
+  },
+  "author": "",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/Archie-Adams/keyboard-shortcut-map-maker/issues"
+  },
+  "homepage": "https://github.com/Archie-Adams/keyboard-shortcut-map-maker#readme",
+  "dependencies": {
+    "dom-to-image": "^2.6.0",
+    "file-saver": "^2.0.5"
+  }
+}

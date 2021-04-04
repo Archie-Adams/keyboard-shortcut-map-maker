@@ -31,6 +31,8 @@
   <!--     - Fix colour on the keys. Override the default CSS classes. -->
 
   <!-- Javascript. -->
+  <script src="node_modules/dom-to-image/src/dom-to-image.js"></script>
+  <script src="node_modules/file-saver/src/FileSaver.js" </script></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="main.js"></script>
 
@@ -64,7 +66,8 @@
       </li>
       <li>
         <!-- TODO: Save keyboards to an image. -->
-        <div data-key=" MainSavePng" class="menukey text-lg vert-center text-center key--6 key--disabled">Save to
+        <div data-key="MainSavePng" class="menukey text-lg vert-center text-center key--6" onclick="saveToPng();">Save
+          to
           png</div>
       </li>
       <li>

@@ -6,7 +6,7 @@
 /*                             TODO: Description.                             */
 /* -------------------------------------------------------------------------- */
 
-activeColour = "";
+var activeColour = "";
 
 /* --------------------------- Handle keypresses. --------------------------- */
 $(document).on("click", ".key", function () {
@@ -152,7 +152,7 @@ $(document).on("mouseover", ".editable", function () {
   $(this).text("✎" + $(this).text());
 });
 $(document).on("mouseleave", ".editable", function () {
-  text = $(this).text();
+  let text = $(this).text();
   if (text[0] == "✎") {
     $(this).text(text.substring(1, text.length));
   }
@@ -177,7 +177,7 @@ function saveToHtml() {
   $('head').find('meta').appendTo($(outfile).find('head'));
 
   // Add title to the head.
-  title = $(document).find('#loadedFileHeader').text();
+  var title = $(document).find('#loadedFileHeader').text();
   $(outfile).find('head').append("<title>" + title + "</title>");
 
   // Add css styling to the head.
@@ -229,6 +229,29 @@ function saveToHtml() {
         });
     });
 
+}
+/* -------------------------------------------------------------------------- */
+
+
+/* -------------------------- Save to PNG function -------------------------- */
+function saveToPng() {
+  var pngTable = $("#KeyboardTable").clone();
+  pngTable.removeAttr('id');
+  $(pngTable).prop('id', 'pngTable');
+  $(pngTable).find('li span:not(.userText)').addClass('hidden');
+  $(pngTable).find('li p').addClass('hidden');
+  $(pngTable).prop('style', 'background-color: white;');
+  $(pngTable).find('h2').prop('style', 'margin-top:10px;');
+  $(pngTable).find('h3').prop('style', 'margin-top:20px;');
+  $("#KeyboardTable").after(pngTable);
+
+  domtoimage.toBlob(document.getElementById('pngTable'))
+    .then(function (blob) {
+      var name = $("#loadedFileHeader").text();
+      name = name.substring(0, name.length - 5) + ".png";
+      window.saveAs(blob, name);
+      $("#pngTable").remove();
+    });
 }
 /* -------------------------------------------------------------------------- */
 
