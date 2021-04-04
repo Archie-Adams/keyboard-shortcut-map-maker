@@ -13,6 +13,9 @@ $(document).on("click", ".key", function () {
 
   var dataKey = $(this).attr('data-key');
 
+  // TODO: Is key this.
+  console.log($(this).text());
+
   var keyboardId = $(this).parent().parent().parent().attr('id');
   var keyboard = $(document).find("#" + keyboardId);
   var key;
@@ -80,42 +83,9 @@ $(document).on("click", ".key", function () {
       }
       animateKey = false;
     }
-
-    // Check for a main menu button.
-    else if (dataKey.includes("Main")) {
-      switch (key.attr('data-key')) {
-        // TODO: Probably un-needed. REMOVE
-        // Have a .menukey, .key on the key class so this function is not ran
-        // when menu keys are used.
-        case "MainLoadHtml":
-          break;
-        case "MainNewSet":
-          break;
-        case "MainSavePng":
-          break;
-        case "MainSaveHTML":
-
-          break;
-        case "MainPrint":
-          // TODO: Have as onclick JS
-          window.print();
-          break;
-      }
-    }
-
-    // Check add element keys.
-    // TODO: Change to event listeners on the functions.
-    else if (dataKey == "AddSectionDivider") {
-      addSectionDivider();
-    }
-    else if (dataKey == "AddKeyboard") {
-      addKeyboard();
-    }
-    else if (dataKey == "AddChordSection") {
-      addChordSection();
-    }
   }
 
+  // TODO: When remove colour from here can get rid of animate function.
   if (animateKey) {
     animate(key)
   }
@@ -125,11 +95,6 @@ $(document).on("click", ".key", function () {
 
 /* ----------------------------- Key animations. ---------------------------- */
 function animate(key) {
-  // Do not animate key if disabled.
-  if (key.hasClass("key--disabled")) {
-    return;
-  }
-
   // Set key to be pressed for 200ms.
   key.addClass("key--pressed");
   setTimeout(() => { key.removeClass("key--pressed"); }, 200);
@@ -140,18 +105,23 @@ function animate(key) {
 /* ---------------------- Add/Remove element functions. --------------------- */
 // TODO: Implement addSectionDivider()
 function addSectionDivider() { }
+$(document).on("click", "#AddSectionDivider", function () {
 
-function addKeyboard() {
+});
+
+$(document).on("click", "#AddKeyboard", function () {
   var template = $(document).find("#template").clone();
   template.removeAttr('hidden');
   template.removeAttr('id');
   listLen = $("#KeyboardTable li").length + 1;
   $(template).find('div').prop('id', 'kbd' + listLen);
   template.appendTo("#KeyboardTable");
-}
+});
 
 // TODO: Implement addChordSection()
-function addChordSection() { }
+$(document).on("click", "#AddChordSection", function () {
+
+});
 
 function removeSectionDivider(SectionDividerLi) {
   if (confirm('Are you sure you want to delete this section divider?')) {
@@ -183,6 +153,35 @@ $.fn.moveDown = function () {
 };
 
 // TODO: Implement drag and drop.
+/* -------------------------------------------------------------------------- */
+
+
+/* ---------------------------- Editable headers ---------------------------- */
+$(document).on("click", "#loadedFileHeader", function () {
+  var currentText = $(this).text().substring(1, $(this).text().length - 5);
+  var newText = prompt("Please enter a new filename.", currentText);
+  if (newText != null) {
+    $(this).text(newText + ".html");
+  }
+});
+
+$(document).on("click", ".editable:not(#loadedFileHeader)", function () {
+  var currentText = $(this).text().substring(1, $(this).text().length);
+  var newText = prompt("Please enter a new name.", currentText);
+  if (newText != null) {
+    $(this).text(newText);
+  }
+});
+
+$(document).on("mouseover", ".editable", function () {
+  $(this).text("✎" + $(this).text());
+});
+$(document).on("mouseleave", ".editable", function () {
+  text = $(this).text();
+  if (text[0] == "✎") {
+    $(this).text(text.substring(1, text.length));
+  }
+});
 /* -------------------------------------------------------------------------- */
 
 
