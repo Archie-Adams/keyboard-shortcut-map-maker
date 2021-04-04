@@ -89,7 +89,7 @@ $(document).on("click", "#AddKeyboard", function () {
   var template = $(document).find("#template10Keyless").clone();
   template.removeAttr('hidden');
   template.removeAttr('id');
-  $(template).find('div').prop('id', 'kbd' + new Date().getTime());
+  $(template).find('div:first').prop('id', 'kbd' + new Date().getTime());
   template.appendTo("#KeyboardTable");
 });
 
