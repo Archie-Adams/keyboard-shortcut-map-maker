@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="./site.css" type="text/css">
   <link rel="stylesheet" href="./keyboard.css" type="text/css">
   <link rel="stylesheet" href="./key-colours.css" type="text/css">
+  <link rel="stylesheet" href="./print.css" media="print" type="text/css">
   <!-- TODO: Make a printable version of the site. -->
   <!--     - Hide header + footer + add buttons + colour buttons. -->
   <!--     - Hide Delete keyboard and move keyboard buttons. -->
@@ -54,8 +55,6 @@
         <input type="file" name="inputfile" id="inputfile" style="display: none;">
       </li>
       <li>
-        <!-- TODO: Implement new keyboard set creation. -->
-        <!-- Ask user if they want to save current set first. -->
         <div data-key="MainNewSet" class="menukey text-lg vert-center text-center key--6" onclick="newSet();">Create new
           set</div>
       </li>
@@ -65,15 +64,12 @@
           HTML</div>
       </li>
       <li>
-        <!-- TODO: Save keyboards to an image. -->
         <div data-key="MainSavePng" class="menukey text-lg vert-center text-center key--6" onclick="saveToPng();">Save
-          to
-          png</div>
+          to png</div>
       </li>
       <li>
-        <div data-key="MainPrint" class="menukey text-lg vert-center text-center key--6 key--disabled">
+        <div data-key="MainPrint" class="menukey text-lg vert-center text-center key--6" onclick="window.print();">
           Print</div>
-        <!-- onclick="window.print();" -->
       </li>
     </ul>
   </div>
@@ -95,8 +91,6 @@
       <!--     - Briefly note future features. -->
       <!--     - Have a button to hide. -->
     </div>
-
-    <pre id="output"></pre>
 
     <ol id="KeyboardTable">
 
@@ -1160,25 +1154,24 @@
 
   </ol>
 
-  <div class=" keyboardBorderStyle ulButtons ThreeButtons">
+  <div class="addButtons keyboardBorderStyle ulButtons ThreeButtons">
     <ul>
       <li>
-        <div id="AddSectionDivider" class="menukey text-lg vert-center text-center key--6">Add
-          Divider</div>
-      </li>
-
-      <li>
-        <div id="AddKeyboard" class="menukey text-lg vert-center text-center key--6">Add
-          Keyboard</div>
+        <div id="AddSectionDivider" class="menukey text-lg vert-center text-center key--6">
+          Add Divider</div>
       </li>
       <li>
-        <div id="AddChordSection" class="menukey text-lg vert-center text-center key--6 key--disabled">Add
-          Chords</div>
+        <div id="AddKeyboard" class="menukey text-lg vert-center text-center key--6">
+          Add Keyboard</div>
+      </li>
+      <li>
+        <div id="AddChordSection" class="menukey text-lg vert-center text-center key--6 key--disabled">
+          Add Chords</div>
       </li>
     </ul>
   </div>
 
-  <div class=" keyboardBorderStyle ulButtons SixButtons">
+  <div class="colourButtons keyboardBorderStyle ulButtons SixButtons">
     <ul>
       <li>
         <div data-key="ColourCoral" class="colourkey text-lg vert-center text-center key--6 key--colour--coral"
@@ -1213,7 +1206,6 @@
       </li>
     </ul>
   </div>
-
 
 </body>
 
