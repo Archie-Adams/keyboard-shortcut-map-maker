@@ -217,14 +217,14 @@ function saveToHtml() {
 
               // Create the header.
               $(outfile).find('head').after('<header></header>');
-              $('header').find('h1').appendTo($(outfile).find('header'));
-              $('header').find('h2').appendTo($(outfile).find('header'));
+              $('header').find('h1').clone().appendTo($(outfile).find('header'));
+              $('header').find('h2').clone().appendTo($(outfile).find('header'));
               $(outfile).find('header').append('<div style=" padding-top: 1px;"></div>');
 
               // Create the body.
               $(outfile).find('body').append('<div style=" margin-top: 30px;" class="top-padding-50px"></div>');
               $(outfile).find('body').append('<div class="bodyStyle"></div>');
-              $(outfile).find('.bodyStyle').append($(document).find('#KeyboardTable'));
+              $(outfile).find('.bodyStyle').append($(document).find('#KeyboardTable').clone());
 
               // Visually remove UI from keyboards.
               $(outfile).find('li span').addClass('hidden');
