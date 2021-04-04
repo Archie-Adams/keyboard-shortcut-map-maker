@@ -54,7 +54,8 @@
       <li>
         <!-- TODO: Implement new keyboard set creation. -->
         <!-- Ask user if they want to save current set first. -->
-        <div data-key="MainNewSet" class="menukey text-lg vert-center text-center key--6">Create new set</div>
+        <div data-key="MainNewSet" class="menukey text-lg vert-center text-center key--6" onclick="newSet();">Create new
+          set</div>
       </li>
       <li>
         <div data-key="MainSaveHTML" class="menukey text-lg vert-center text-center key--6" onclick="saveToHtml();">Save
@@ -97,9 +98,17 @@
     <ol id="KeyboardTable">
 
       <li>
-        <span class="up" onclick="$(this.parentNode).moveUp();"></span>
-        <span class="down" onclick="$(this.parentNode).moveDown();"></span>
-        <h3 style="float: left;" class="editable">10-Keyless Keyboard</h3>
+        <span class="up"></span>
+        <span class="down"></span>
+        <h2 style="float:left;" class="editable">Program open hotkeys</h2>
+        <p style="float: right; font-size: 18px;" onclick="removeSectionDivider($(this.parentNode));">🚮
+        </p>
+        <hr style="clear: both;" class="sectionDivider" />
+      </li>
+      <li>
+        <span class="up"></span>
+        <span class="down"></span>
+        <h3 style="float: left;" class="editable">Win + Shift</h3>
         <p style="float: right; font-size: 18px;" onclick="removeKeyboard($(this.parentNode));">🚮</p>
         <div id="kbd1" class="keyboard large">
 
@@ -267,9 +276,9 @@
       </li>
 
       <li>
-        <span class="up" onclick="$(this.parentNode).moveUp();"></span>
-        <span class="down" onclick="$(this.parentNode).moveDown();"></span>
-        <h3 style="float: left;" class="editable">10-Keyless Keyboard</h3>
+        <span class="up"></span>
+        <span class="down"></span>
+        <h3 style="float: left;" class="editable">Win + Ctrl + Shift</h3>
         <p style="float: right; font-size: 18px;" onclick="removeKeyboard($(this.parentNode));">🚮</p>
         <div id="kbd2" class="keyboard large">
 
@@ -435,9 +444,9 @@
       </li>
 
       <li>
-        <span class="up" onclick="$(this.parentNode).moveUp();"></span>
-        <span class="down" onclick="$(this.parentNode).moveDown();"></span>
-        <h3 style="float: left;" class="editable">10-Keyless Keyboard</h3>
+        <span class="up"></span>
+        <span class="down"></span>
+        <h3 style="float: left;" class="editable">Win</h3>
         <p style="float: right; font-size: 18px;" onclick="removeKeyboard($(this.parentNode));">🚮</p>
         <div id="kbd3" class="keyboard large">
 
@@ -599,9 +608,17 @@
         </div> <!-- End of keyboard. -->
       </li>
       <li>
-        <span class="up" onclick="$(this.parentNode).moveUp();"></span>
-        <span class="down" onclick="$(this.parentNode).moveDown();"></span>
-        <h3 style="float: left;" class="editable">10-Keyless Keyboard</h3>
+        <span class="up"></span>
+        <span class="down"></span>
+        <h2 style="float:left;" class="editable">Window manipulation hotkeys</h2>
+        <p style="float: right; font-size: 18px;" onclick="removeSectionDivider($(this.parentNode));">🚮
+        </p>
+        <hr style="clear: both;" class="sectionDivider" />
+      </li>
+      <li>
+        <span class="up"></span>
+        <span class="down"></span>
+        <h3 style="float: left;" class="editable">Thirds</h3>
         <p style="float: right; font-size: 18px;" onclick="removeKeyboard($(this.parentNode));">🚮</p>
         <div id="kbd4" class="keyboard large">
 
@@ -778,9 +795,9 @@
         </div> <!-- End of keyboard. -->
       </li>
       <li>
-        <span class="up" onclick="$(this.parentNode).moveUp();"></span>
-        <span class="down" onclick="$(this.parentNode).moveDown();"></span>
-        <h3 style="float: left;" class="editable">10-Keyless Keyboard</h3>
+        <span class="up"></span>
+        <span class="down"></span>
+        <h3 style="float: left;" class="editable">3x3 Grid</h3>
         <p style="float: right; font-size: 18px;" onclick="removeKeyboard($(this.parentNode));">🚮</p>
         <div id="kbd5" class="keyboard large">
 
@@ -965,9 +982,10 @@
 
   <ol id="templateList">
     <!-- This is a blank template board for adding new boards. -->
+    <!-- TODO: change template to template10Keyless -->
     <li id="template" hidden>
-      <span class="up" onclick="$(this.parentNode).moveUp();"></span>
-      <span class="down" onclick="$(this.parentNode).moveDown();"></span>
+      <span class="up"></span>
+      <span class="down"></span>
       <h3 style="float: left;" class="editable">10-Keyless Keyboard</h3>
       <p style="float: right; font-size: 18px;" onclick="removeKeyboard($(this.parentNode));">🚮</p>
       <div id="kbdTemplate" class="keyboard large">
@@ -1073,7 +1091,7 @@
           <div class="keyboard__row keyboard__row--lg">
             <div data-key="ControlLeft" class="key text-center key--2">CTRL<span class="userText"></span>
             </div>
-            <div data-key="OSLeft" class="key text-center key--2 key--colour--coral">WIN<span class="userText"></span>
+            <div data-key="OSLeft" class="key text-center key--2">WIN<span class="userText"></span>
             </div>
             <div data-key="AltLeft" class="key text-center key--2">ALT<span class="userText"></span></div>
             <div data-key="Space" class="key key--8"><span class="userText"></span></div>
@@ -1132,12 +1150,11 @@
     <li id="templateChord" hidden></li>
 
     <li id="templateSectionDivider" hidden>
-      <span class="up" onclick="$(this.parentNode).moveUp();"></span>
-      <span class="down" onclick="$(this.parentNode).moveDown();"></span>
+      <span class="up"></span>
+      <span class="down"></span>
       <h2 style="float:left;" class="editable">Section divider</h2>
       <p style="float: right; font-size: 18px;" onclick="removeSectionDivider($(this.parentNode));">🚮</p>
       <hr style="clear: both;" class="sectionDivider">
-      <!-- Add margin below -->
     </li>
 
   </ol>

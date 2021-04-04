@@ -101,7 +101,10 @@ function animate(key) {
 }
 /* -------------------------------------------------------------------------- */
 
-
+// FIXME: IDs for added elements will be the same following sequence;
+// ADD ADD REMOVE ADD.
+// Need to find a way to have different ids.
+// could use yearmonthday24hourminutesecondmillisecond
 /* ---------------------- Add/Remove element functions. --------------------- */
 function addSectionDivider() { }
 $(document).on("click", "#AddSectionDivider", function () {
@@ -146,15 +149,14 @@ function removeChordSection(ChordLi) {
 
 
 /* ------------------------ List ordering functions. ------------------------ */
-$.fn.moveUp = function () {
-  before = $(this).prev();
-  $(this).insertBefore(before);
-};
-
-$.fn.moveDown = function () {
-  after = $(this).next();
-  $(this).insertAfter(after);
-};
+$(document).on("click", ".up", function () {
+  before = $(this.parentNode).prev();
+  $(this.parentNode).insertBefore(before);
+});
+$(document).on("click", ".down", function () {
+  after = $(this.parentNode).next();
+  $(this.parentNode).insertAfter(after);
+});
 
 // TODO: Implement drag and drop.
 /* -------------------------------------------------------------------------- */
@@ -220,7 +222,7 @@ function saveToHtml() {
             .done(function (response) {
               $('<style />').text(response).appendTo($(outfile).find('head'));
 
-              // FIXME: Nested due to async? function timings.
+              // TODO: Nested due to async? function timings.
 
               // Create the header.
               $(outfile).find('head').after('<header></header>');
@@ -284,3 +286,13 @@ $(document).on("change", "#inputfile", function () {
 })
 /* -------------------------------------------------------------------------- */
 
+
+/* ---------------------------- New Set Function ---------------------------- */
+function newSet() {
+  if (confirm('If you start a new set unsaved changes will be lost.')) {
+    $(document).find("#KeyboardTable").empty();
+    $(document).find(loadedFileHeader).text("New-Set.html");
+    $(document).find('#AddKeyboard').click();
+  }
+}
+/* -------------------------------------------------------------------------- */
