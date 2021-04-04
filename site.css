@@ -121,6 +121,7 @@ ol{
   font-weight: 600;
 }
 
+.up               { margin-left:20px; }
 .up, .down        { cursor: pointer; }
 .up:after         { content: '△'; }
 .up:hover:after   { content: '▲'; }
@@ -129,4 +130,8 @@ ol{
 
 .hidden {
   display: none;
+}
+
+.sectionDivider {
+  margin-bottom: 15px;
 }

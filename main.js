@@ -103,10 +103,14 @@ function animate(key) {
 
 
 /* ---------------------- Add/Remove element functions. --------------------- */
-// TODO: Implement addSectionDivider()
 function addSectionDivider() { }
 $(document).on("click", "#AddSectionDivider", function () {
-
+  var template = $(document).find("#templateSectionDivider").clone();
+  template.removeAttr('hidden');
+  template.removeAttr('id');
+  listLen = $("#KeyboardTable li").length + 1;
+  $(template).find('div').prop('id', 'divider' + listLen);
+  template.appendTo("#KeyboardTable");
 });
 
 $(document).on("click", "#AddKeyboard", function () {
