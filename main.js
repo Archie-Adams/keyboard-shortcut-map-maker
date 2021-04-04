@@ -101,27 +101,20 @@ function animate(key) {
 }
 /* -------------------------------------------------------------------------- */
 
-// FIXME: IDs for added elements will be the same following sequence;
-// ADD ADD REMOVE ADD.
-// Need to find a way to have different ids.
-// could use yearmonthday24hourminutesecondmillisecond
 /* ---------------------- Add/Remove element functions. --------------------- */
-function addSectionDivider() { }
 $(document).on("click", "#AddSectionDivider", function () {
   var template = $(document).find("#templateSectionDivider").clone();
   template.removeAttr('hidden');
   template.removeAttr('id');
-  listLen = $("#KeyboardTable li").length + 1;
-  $(template).find('div').prop('id', 'divider' + listLen);
+  $(template).find('hr').prop('id', 'divider' + new Date().getTime());
   template.appendTo("#KeyboardTable");
 });
 
 $(document).on("click", "#AddKeyboard", function () {
-  var template = $(document).find("#template").clone();
+  var template = $(document).find("#template10Keyless").clone();
   template.removeAttr('hidden');
   template.removeAttr('id');
-  listLen = $("#KeyboardTable li").length + 1;
-  $(template).find('div').prop('id', 'kbd' + listLen);
+  $(template).find('div').prop('id', 'kbd' + new Date().getTime());
   template.appendTo("#KeyboardTable");
 });
 
