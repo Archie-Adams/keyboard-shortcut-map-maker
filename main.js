@@ -287,3 +287,10 @@ function newSet() {
   }
 }
 /* -------------------------------------------------------------------------- */
+
+
+/* --------------- Stop user from accidentally losing changes --------------- */
+window.onbeforeunload = function (e) {
+  return "Sure you want to leave?";
+};
+/* -------------------------------------------------------------------------- */
