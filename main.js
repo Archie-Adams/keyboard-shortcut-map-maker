@@ -11,95 +11,71 @@ activeColour = "";
 /* --------------------------- Handle keypresses. --------------------------- */
 $(document).on("click", ".key", function () {
 
-  var dataKey = $(this).attr('data-key');
+  var key = $(this);
 
-  // TODO: Is key this.
-  console.log($(this).text());
-
-  var keyboardId = $(this).parent().parent().parent().attr('id');
-  var keyboard = $(document).find("#" + keyboardId);
-  var key;
-  var animateKey = true;
-
-  if (keyboardId != undefined) {
-    // Find key on specific keyboard.
-    key = $(keyboard).find("[data-key=" + dataKey + "]")
-
-    if (activeColour == "") {
-      // If a colour button is not selected add new text.
-      var currentText = $(key).find(".userText").text();
-      var newKeyText = prompt("Please enter new text for the key.", currentText);
-      if (newKeyText != null) {
-        $(key).find(".userText").text(newKeyText);
-      }
-    } else {
-      // If a colour button is selected change key colour.
-
-      // 1) remove akk classes containing substring 'key--colour'
-      $(key).removeClass(function (index, css) {
-        return (css.match(/(^|\s)key--colour\S+/g) || []).join(' ');
-      });
-
-      if (activeColour != "NONE") {
-        $(key).addClass(activeColour);
-      }
+  if (activeColour == "") {
+    // If a colour button is not selected add new text.
+    var currentText = $(key).find(".userText").text();
+    var newKeyText = prompt("Please enter new text for the key.", currentText);
+    if (newKeyText != null) {
+      $(key).find(".userText").text(newKeyText);
     }
-
   } else {
-    // A menu key, not on a keyboard.
-    key = $("[data-key=" + dataKey + "]");
+    // If a colour button is selected change key colour.
 
-    // TODO: Add a .colourkey and an event listen function, remove complexity from above.
-    // Check for a colour selection button.
-    if (dataKey.includes("Colour")) {
-      switch (dataKey) {
-        case "ColourCoral":
-          activeColour = "key--colour--coral";
-          break;
-        case "ColourBlue":
-          activeColour = "key--colour--blue";
-          break;
-        case "ColourNavy":
-          activeColour = "key--colour--navy";
-          break;
-        case "ColourGreen":
-          activeColour = "key--colour--green";
-          break;
-        case "ColourOrange":
-          activeColour = "key--colour--orange";
-          break;
-        case "ColourNone":
-          activeColour = "NONE";
-          break;
-      }
-      // Creates a toggle effect for each colour button.
-      if (key.hasClass("key--pressed")) {
-        $("[data-key*='Colour']").removeClass("key--pressed");
-        activeColour = "";
-      }
-      else {
-        $("[data-key*='Colour']").removeClass("key--pressed");
-        key.addClass("key--pressed");
-      }
-      animateKey = false;
+    // Remove akk classes containing substring 'key--colour'
+    $(key).removeClass(function (index, css) {
+      return (css.match(/(^|\s)key--colour\S+/g) || []).join(' ');
+    });
+    // Add the activeColour.
+    if (activeColour != "NONE") {
+      $(key).addClass(activeColour);
     }
   }
 
-  // TODO: When remove colour from here can get rid of animate function.
-  if (animateKey) {
-    animate(key)
+  // Set key to be pressed for 200ms.
+  key.addClass("key--pressed");
+  setTimeout(() => { key.removeClass("key--pressed"); }, 200);
+
+});
+/* -------------------------------------------------------------------------- */
+
+/* ---------------------------- Colour selection ---------------------------- */
+$(document).on("click", ".colourkey", function () {
+  var dataKey = $(this).attr('data-key');
+
+  switch (dataKey) {
+    case "ColourCoral":
+      activeColour = "key--colour--coral";
+      break;
+    case "ColourBlue":
+      activeColour = "key--colour--blue";
+      break;
+    case "ColourNavy":
+      activeColour = "key--colour--navy";
+      break;
+    case "ColourGreen":
+      activeColour = "key--colour--green";
+      break;
+    case "ColourOrange":
+      activeColour = "key--colour--orange";
+      break;
+    case "ColourNone":
+      activeColour = "NONE";
+      break;
+  }
+  // Creates a toggle effect for each colour button.
+  if ($(this).hasClass("key--pressed")) {
+    $("[data-key*='Colour']").removeClass("key--pressed");
+    activeColour = "";
+  }
+  else {
+    $("[data-key*='Colour']").removeClass("key--pressed");
+    $(this).addClass("key--pressed");
   }
 });
 /* -------------------------------------------------------------------------- */
 
-
-/* ----------------------------- Key animations. ---------------------------- */
-function animate(key) {
-  // Set key to be pressed for 200ms.
-  key.addClass("key--pressed");
-  setTimeout(() => { key.removeClass("key--pressed"); }, 200);
-}
-/* -------------------------------------------------------------------------- */
 
 /* ---------------------- Add/Remove element functions. --------------------- */
 $(document).on("click", "#AddSectionDivider", function () {

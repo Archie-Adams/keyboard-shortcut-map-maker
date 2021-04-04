@@ -181,7 +181,7 @@
   display: none;
 }
 
-.menukey, .key {
+.colourkey, .menukey, .key {
   position: relative;
   width: 4rem;
   height: 4rem;
@@ -219,7 +219,7 @@
   font-weight: 500;
 }
 
-.key:last-child, .menukey:last-child {
+.key:last-child, .menukey:last-child, .colourkey:last-child {
   margin-right: 0;
 }
 
