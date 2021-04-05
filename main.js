@@ -272,6 +272,9 @@ $(document).on("change", "#inputfile", function () {
     var object = $('<div/>').html(string).contents();
     $(document).find("#KeyboardTable").html(object.find("#KeyboardTable").html());
 
+    // Set the filename header.
+    $(document).find("#loadedFileHeader").text(object.find("#loadedFileHeader").text());
+
     // Unhide the controls on the keyboards.
     $(document).find("#KeyboardTable li span").removeClass('hidden');
     $(document).find("#KeyboardTable li p").removeClass('hidden');
