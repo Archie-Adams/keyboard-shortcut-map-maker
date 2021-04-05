@@ -77,22 +77,37 @@
 
   <div class="bodyStyle">
 
-    <div>
-      <!-- TODO: Add site usage and help section. -->
-      <!--     - Explain what site is for. -->
-      <!--     - Explain drag and drop usage. -->
-      <!--     - Explain adding and deleting. -->
-      <!--     - Explain Loading and saving. -->
-      <!--     - Briefly note future features. -->
-      <!--     - Have a button to hide. -->
+    <div id="open-introduction" style="font-size:24px; margin-bottom: 8px;" class="hidden">ⓘ</div>
+    <div id="introduction">
+      <h2>Introduction <button id="close-introduction">Close</button></h2>
+      <p>This site is a tool to produce a visual image of keyboard shortcuts or application
+        keybindings.</p>
+      <p>Below is an example of what the site may be used to create.</p>
+      <p>To start your own, click 'Create new set' from the header menu.</p>
+      <p>Keyboards and sections can be added using the buttons at the bottom of the page.</p>
+      <p>To change the text of any key simply click on the key, and enter the new text in the
+        pop-up.</p>
+      <p>To change the colour of keys first select a colour from the palette at the bottom of
+        the page. <br> This is then the
+        selected colour, and any key which is subsequently pressed will change to this colour. <br> To change the
+        selected colour, simply
+        click on another colour key. <br>
+        To deselect colours click the currently selected colours key. <br> Note: the
+        currently selected colours key will have a pressed down effect.</p>
+      <p>Keyboards and sections can be re-ordered by clicking the ▽ and △ symbols next to their headers.</p>
+      <p>Keyboards and sections can be deleted by clicking the 🚮 symbol to their top right.</p>
+      <p>The headers for the keyboards, the sections, and the filename (at the top of the page), can all be edited by
+        mousing over and clicking on them.</p>
+      <hr>
     </div>
-
     <ol id="KeyboardTable">
 
       <li>
         <span class="up"></span>
         <span class="down"></span>
         <h2 style="float:left;" class="editable">Program open hotkeys</h2>
+        <!-- TODO: Have a .keyboard-remove class, and use .on functions.-->
+        <!-- TODO: Add mouse over enlarge and cursor click image. -->
         <p style="float: right; font-size: 18px;" onclick="removeSectionDivider($(this.parentNode));">🚮
         </p>
         <hr style="clear: both;" class="sectionDivider" />

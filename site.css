@@ -55,6 +55,17 @@ html, body {
   margin:0 auto;
 }
 
+#introduction{
+  margin-bottom: 25px;
+}
+#introduction p {
+  margin-bottom:5px;
+}
+#introduction hr {
+  margin-top:10px;
+  margin-bottom:7px;
+}
+
 /* Footer styling. */
 footer {
   background-color: #b4b3bd; 

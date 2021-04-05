@@ -15,7 +15,14 @@ li {
   break-inside: avoid;
 }
 
-.up, .down, li p, header div, .addButtons, .colourButtons, footer {
+.up,
+.down,
+li p,
+header div,
+.addButtons,
+.colourButtons,
+footer,
+#introduction {
   display: none;
 }
 

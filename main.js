@@ -256,6 +256,9 @@ function saveToPng() {
 
 
 /* --------------------------- Load HTML Function --------------------------- */
+// FIXME: Only loads on input file change, if user loads a file, edits it,
+// decides to start from scratch and attempts to reopen the same file, the
+// selected file will not have changed and nothing will happen.
 $(document).on("change", "#inputfile", function () {
 
   // Clear the current keyboard list.
@@ -293,4 +296,12 @@ function newSet() {
 window.onbeforeunload = function (e) {
   return "Sure you want to leave?";
 };
+/* -------------------------------------------------------------------------- */
+
+
+// TODO: Add mouse over enlarge and cursor click image.
+/* ---------------------- Toggle the introduction text. --------------------- */
+$(document).on("click", "#close-introduction, #open-introduction", function () {
+  $("#introduction, #open-introduction").toggleClass("hidden");
+});
 /* -------------------------------------------------------------------------- */
