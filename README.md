@@ -5,7 +5,9 @@
 
 This is a website tool for creating a visual map/image of keyboard shortcuts or keybindings.  
 
-It originally started as a tool to generate help pages for my [ahk-scripts](https://github.com/Archie-Adams/ahk-scripts) project.
+It originally started as a tool to generate help pages for my [ahk-scripts](https://github.com/Archie-Adams/ahk-scripts) project.  
+
+Note: A single file version of this website for easier local use can be found in the [releases](https://github.com/Archie-Adams/keyboard-shortcut-map-maker/releases) page.  
 
 ---
 
@@ -21,6 +23,7 @@ It originally started as a tool to generate help pages for my [ahk-scripts](http
 
 ### Planned Features:
 - Adding key chord tables/sections.
+- Collapsable notes section for each keyboard.
 - Custom colours.
 - Full control over key text.
 - Different keyboard layouts.
