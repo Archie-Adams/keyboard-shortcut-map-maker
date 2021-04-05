@@ -25,10 +25,16 @@ It originally started as a tool to generate help pages for my [ahk-scripts](http
 - Full control over key text.
 - Different keyboard layouts.
 - One HTML file version of the site.
+- Better styling + more key animations.
+- Code refactor and clean-up.
+
+### Known Issues:
+- Cannot reload same file without loading another in-between.
+  - Caused by load function being called on input file change.
 
 &nbsp;
 
-# [Live Site](https://archie-adams.github.io/keyboard-shortcut-map-maker/)
+# [Live Site ↪](https://archie-adams.github.io/keyboard-shortcut-map-maker/)
 
 # Images
 
@@ -45,5 +51,3 @@ If you would like to improve upon this project and feel welcome to submit a pull
 
 # Acknowledgments
 [Keyboard](https://github.com/guido732/mechanical-keyboard) inspiration: [Guido Torres](https://github.com/guido732)  
-
-
