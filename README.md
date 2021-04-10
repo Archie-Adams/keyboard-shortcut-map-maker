@@ -30,6 +30,8 @@ Note: A single file version of this website for easier local use can be found in
 - One HTML file version of the site.
 - Better styling + more key animations.
 - Code refactor and clean-up.
+- Collapsable sections.
+- Keyboard control.
 
 ### Known Issues:
 - Cannot reload same file without loading another in-between.
