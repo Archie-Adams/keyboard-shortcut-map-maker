@@ -19,14 +19,14 @@ $(document).on("click", ".key", function () {
     if (newKeyText != null) {
       $(key).find(".userText").text(newKeyText);
     }
-  } else {
-    // If a colour button is selected change key colour.
+
+  } else { // If a colour button is selected change key colour.
 
     // Remove akk classes containing substring 'key--colour'
     $(key).removeClass(function (index, css) {
       return (css.match(/(^|\s)key--colour\S+/g) || []).join(' ');
     });
-    // Add the activeColour.
+    // Add the activeColour, if the none colour option is not chosen.
     if (activeColour != "NONE") {
       $(key).addClass(activeColour);
     }
@@ -35,9 +35,9 @@ $(document).on("click", ".key", function () {
   // Set key to be pressed for 200ms.
   key.addClass("key--pressed");
   setTimeout(() => { key.removeClass("key--pressed"); }, 200);
-
 });
 /* -------------------------------------------------------------------------- */
+
 
 /* ---------------------------- Colour selection ---------------------------- */
 $(document).on("click", ".colourkey", function () {
@@ -78,7 +78,7 @@ $(document).on("click", ".colourkey", function () {
 
 /* ---------------------- Add/Remove element functions. --------------------- */
 $(document).on("click", "#AddSectionDivider", function () {
-  var template = $(document).find("#templateSectionDivider").clone();
+  var template = $("#templateSectionDivider").clone();
   template.removeAttr('hidden');
   template.removeAttr('id');
   $(template).find('hr').prop('id', 'divider' + new Date().getTime());
@@ -86,7 +86,15 @@ $(document).on("click", "#AddSectionDivider", function () {
 });
 
 $(document).on("click", "#AddKeyboard", function () {
-  var template = $(document).find("#template10Keyless").clone();
+  var template = $("#template10Keyless").clone();
+  template.removeAttr('hidden');
+  template.removeAttr('id');
+  $(template).find('div:first').prop('id', 'kbd' + new Date().getTime());
+  template.appendTo("#KeyboardTable");
+});
+
+$(document).on("click", "#AddKeyboardLarge", function () {
+  var template = $("#templateLarge").clone();
   template.removeAttr('hidden');
   template.removeAttr('id');
   $(template).find('div:first').prop('id', 'kbd' + new Date().getTime());
@@ -176,7 +184,7 @@ function saveToHtml() {
   $('head').find('meta').appendTo($(outfile).find('head'));
 
   // Add title to the head.
-  var title = $(document).find('#loadedFileHeader').text();
+  var title = $('#loadedFileHeader').text();
   $(outfile).find('head').append("<title>" + title + "</title>");
 
   // Add css styling to the head.
@@ -201,8 +209,9 @@ function saveToHtml() {
               // Create the body.
               $(outfile).find('body').append('<div style=" margin-top: 30px;" class="top-padding-50px"></div>');
               $(outfile).find('body').append('<div class="bodyStyle"></div>');
-              $(outfile).find('.bodyStyle').append($(document).find('#KeyboardTable').clone());
+              $(outfile).find('.bodyStyle').append($('#KeyboardTable').clone());
 
+              // TODO: Change to hiding all .ui classes.
               // Visually remove UI from keyboards.
               $(outfile).find('li span:not(.userText)').addClass('hidden');
               $(outfile).find('li p').addClass('hidden');
@@ -262,7 +271,7 @@ function saveToPng() {
 $(document).on("change", "#inputfile", function () {
 
   // Clear the current keyboard list.
-  $(document).find("#KeyboardTable").empty();
+  $("#KeyboardTable").empty();
 
   var fr = new FileReader();
   fr.onload = function () {
@@ -270,14 +279,14 @@ $(document).on("change", "#inputfile", function () {
     // Set the document keyboard list to the read in keyboard list.
     var string = fr.result;
     var object = $('<div/>').html(string).contents();
-    $(document).find("#KeyboardTable").html(object.find("#KeyboardTable").html());
+    $("#KeyboardTable").html(object.find("#KeyboardTable").html());
 
     // Set the filename header.
-    $(document).find("#loadedFileHeader").text(object.find("#loadedFileHeader").text());
+    $("#loadedFileHeader").text(object.find("#loadedFileHeader").text());
 
     // Unhide the controls on the keyboards.
-    $(document).find("#KeyboardTable li span").removeClass('hidden');
-    $(document).find("#KeyboardTable li p").removeClass('hidden');
+    $("#KeyboardTable li span").removeClass('hidden');
+    $("#KeyboardTable li p").removeClass('hidden');
   }
   fr.readAsText(this.files[0]);
 })
@@ -287,9 +296,9 @@ $(document).on("change", "#inputfile", function () {
 /* ---------------------------- New Set Function ---------------------------- */
 function newSet() {
   if (confirm('If you start a new set unsaved changes will be lost.')) {
-    $(document).find("#KeyboardTable").empty();
-    $(document).find(loadedFileHeader).text("New-Set.html");
-    $(document).find('#AddKeyboard').click();
+    $("#KeyboardTable").empty();
+    $('#loadedFileHeader').text("New-Set.html");
+    $('#AddKeyboard').click();
   }
 }
 /* -------------------------------------------------------------------------- */
