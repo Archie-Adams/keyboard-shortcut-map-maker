@@ -1143,6 +1143,174 @@
       </div> <!-- End of keyboard. -->
     </li>
 
+    <li id="templateLarge" hidden>
+      <span class="up"></span>
+      <span class="down"></span>
+      <h3 style="float: left;" class="editable">10-Keyless Keyboard</h3>
+      <p style="float: right; font-size: 18px;" onclick="removeKeyboard($(this.parentNode));">🚮</p>
+      <div id="kbdTemplateLarge" class="keyboard large">
+
+        <!-- These add the four darker sections around the corners. -->
+        <div class="keyboard__corner keyboard__corner--bl"></div>
+        <div class="keyboard__corner keyboard__corner--tl"></div>
+        <div class="keyboard__corner keyboard__corner--tr"></div>
+        <div class="keyboard__corner keyboard__corner--br"></div>
+
+        <div class="keyboard__section">
+
+          <!-- TODO: Style keyboard letters so text can be easily added. -->
+          <!-- TODO: test all keys to find out what and how much text can be added. -->
+          <!-- TODO: Figure out how adding text to newlines on each key works. -->
+
+          <div class="keyboard__row keyboard__row--lg keyboard-long-only">
+            <div data-key="Escape" class="key">ESC<span class="userText"></span></div>
+            <div data-key="F1" class="key">F1<span class="userText"></span></div>
+            <div data-key="F2" class="key">F2<span class="userText"></span></div>
+            <div data-key="F3" class="key">F3<span class="userText"></span></div>
+            <div data-key="F4" class="key">F4<span class="userText"></span></div>
+            <div data-key="F5" class="key">F5<span class="userText"></span></div>
+            <div data-key="F6" class="key">F6<span class="userText"></span></div>
+            <div data-key="F7" class="key">F7<span class="userText"></span></div>
+            <div data-key="F8" class="key">F8<span class="userText"></span></div>
+            <div data-key="F9" class="key">F9<span class="userText"></span></div>
+            <div data-key="F10" class="key">F10<span class="userText"></span></div>
+            <div data-key="F11" class="key">F11<span class="userText"></span></div>
+            <div data-key="F12" class="key">F12<span class="userText"></span></div>
+            <div data-key="PrintScreen" class="key">PrtSc<span class="userText"></span></div>
+            <div data-key="Delete" class="key">DEL<span class="userText"></span></div>
+          </div>
+
+          <div class="keyboard__row keyboard__row--lg">
+            <!-- This escape key is only on the short keyboard version. -->
+            <!-- Has same xdata-key so if doing different versions assign colour
+              text and everything by xdata-key. -->
+            <div data-key="Escape" class="key keyboard-short-only">ESC<span class="userText"></span></div>
+            <div data-key="Backquote" class="key keyboard-long-only">`<span class="userText"></span></div>
+            <div data-key="Digit1" class="key ">1<span class="userText"></span></div>
+            <div data-key="Digit2" class="key ">2<span class="userText"></span></div>
+            <div data-key="Digit3" class="key ">3<span class="userText"></span></div>
+            <div data-key="Digit4" class="key ">4<span class="userText"></span></div>
+            <div data-key="Digit5" class="key ">5<span class="userText"></span></div>
+            <div data-key="Digit6" class="key ">6<span class="userText"></span></div>
+            <div data-key="Digit7" class="key ">7<span class="userText"></span></div>
+            <div data-key="Digit8" class="key ">8<span class="userText"></span></div>
+            <div data-key="Digit9" class="key ">9<span class="userText"></span></div>
+            <div data-key="Digit0" class="key ">0<span class="userText"></span></div>
+            <div data-key="Minus" class="key ">-<span class="userText"></span></div>
+            <div data-key="Equal" class="key ">=<span class="userText"></span></div>
+            <div data-key="Backspace" class="key text-end key--5">BACKSPACE<span class="userText"></span></div>
+          </div>
+
+          <div class="keyboard__row keyboard__row--lg">
+            <div data-key="Tab" class="key key--3">TAB<span class="userText"></span></div>
+            <div data-key="KeyQ" class="key">Q<span class="userText"></span></div>
+            <div data-key="KeyW" class="key">W<span class="userText"></span></div>
+            <div data-key="KeyE" class="key">E<span class="userText"></span></div>
+            <div data-key="KeyR" class="key">R<span class="userText"></span></div>
+            <div data-key="KeyT" class="key">T<span class="userText"></span></div>
+            <div data-key="KeyY" class="key">Y<span class="userText"></span></div>
+            <div data-key="KeyU" class="key">U<span class="userText"></span></div>
+            <div data-key="KeyI" class="key">I<span class="userText"></span></div>
+            <div data-key="KeyO" class="key">O<span class="userText"></span></div>
+            <div data-key="KeyP" class="key">P<span class="userText"></span></div>
+            <div data-key="BracketLeft" class="key">[ {<span class="userText"></span></div>
+            <div data-key="BracketRight" class="key">] }<span class="userText"></span></div>
+            <div data-key="Backslash" class="key text-center key--3">\ |<span class="userText"></span></div>
+          </div>
+
+          <div class="keyboard__row keyboard__row--lg">
+            <div data-key="CapsLock" class="key key--4">CAPSLOCK<span class="userText"></span></div>
+            <div data-key="KeyA" class="key">A<span class="userText"></span></div>
+            <div data-key="KeyS" class="key">S<span class="userText"></span></div>
+            <div data-key="KeyD" class="key">D<span class="userText"></span></div>
+            <div data-key="KeyF" class="key">F<span class="userText"></span></div>
+            <div data-key="KeyG" class="key">G<span class="userText"></span></div>
+            <div data-key="KeyH" class="key">H<span class="userText"></span></div>
+            <div data-key="KeyJ" class="key">J<span class="userText"></span></div>
+            <div data-key="KeyK" class="key">K<span class="userText"></span></div>
+            <div data-key="KeyL" class="key">L<span class="userText"></span></div>
+            <div data-key="Semicolon" class="key">; :<span class="userText"></span></div>
+            <div data-key="Quote" class="key"><span>' "<span class="userText"></span></div>
+            <div data-key="Enter" class="key text-end key--6">ENTER<span class="userText"></span></div>
+          </div>
+
+          <div class="keyboard__row keyboard__row--lg">
+            <div data-key="ShiftLeft" class="key key--colour--navy key--6">SHIFT<span class="userText"></span></div>
+            <div data-key="KeyZ" class="key">Z<span class="userText"></span></div>
+            <div data-key="KeyX" class="key">X<span class="userText"></span></div>
+            <div data-key="KeyC" class="key ">C<span class="userText"></span></div>
+            <div data-key="KeyV" class="key">V<span class="userText"></span></div>
+            <div data-key="KeyB" class="key">B<span class="userText"></span></div>
+            <div data-key="KeyN" class="key">N<span class="userText"></span></div>
+            <div data-key="KeyM" class="key">M<span class="userText"></span></div>
+            <div data-key="Comma" class="key">, &lt;<span class="userText"></span></div>
+            <div data-key="Period" class="key">. &gt;<span class="userText"></span></div>
+            <div data-key="Slash" class="key">/ ?<span class="userText"></span></div>
+            <div data-key="ShiftRight" id="shift-right" class="key text-end key--4">SHIFT<span class="userText"></span>
+            </div>
+            <div data-key="ArrowUp" class="key text-center keyboard-long-only">△<span class="userText"></span></div>
+          </div>
+
+          <div class="keyboard__row keyboard__row--lg">
+            <div data-key="ControlLeft" class="key text-center key--2">CTRL<span class="userText"></span></div>
+            <div data-key="OSLeft" class="key key--colour--navy text-center key--2">WIN<span class="userText"></span>
+            </div>
+            <div data-key="AltLeft" class="key text-center key--2">ALT<span class="userText"></span></div>
+            <div data-key="Space" class="key key--8"><span class="userText"></span></div>
+            <div data-key="AltRight" class="key text-center keyboard-short-grow">ALT<span class="userText"></span></div>
+            <div data-key="ContextMenu" class="key text-center keyboard-short-grow keyboard-short-only">
+              FN
+              <span class="userText"></span>
+            </div>
+            <div data-key="OSRight" class="key text-center keyboard-short-grow">WIN<span class="userText"></span></div>
+            <div data-key="ControlRight" class="key text-center keyboard-short-grow last">CTRL<span
+                class="userText"></span></div>
+            <div data-key="ArrowLeft" class="key text-center keyboard-long-only">◁<span class="userText"></span></div>
+            <div data-key="ArrowDown" class="key text-center keyboard-long-only">▽<span class="userText"></span></div>
+          </div>
+
+        </div>
+
+        <!-- This is the numpad and right arrow section. -->
+        <div class="keyboard__section keyboard__section--vertical keyboard-long-only">
+          <div class="keyboard__row keyboard__row--vertical">
+            <div data-key="Home" class="key key--vert">HOME<span class="userText"></span></div>
+            <div data-key="NumLock" class="key key--vert">NumLk<span class="userText"></span></div>
+            <div data-key="Numpad7" class="key key--vert">7
+              <span class="userText"></span>
+            </div>
+            <div data-key="Numpad4" class="key key--vert">4<span class="userText"></span></div>
+            <div data-key="Numpad1" class="key key--vert">1<span class="userText"></span></div>
+            <div data-key="ArrowRight" class="key key--vert text-center">▷<span class="userText"></span></div>
+          </div>
+          <div class="keyboard__row keyboard__row--vertical">
+            <div data-key="End" class="key key--vert">END<span class="userText"></span></div>
+            <div data-key="NumpadDivide" class="key key--vert">/<span class="userText"></span></div>
+            <div data-key="Numpad8" class="key key--vert key--colour--coral">8<span class="userText"></span></div>
+            <div data-key="Numpad5" class="key key--colour--navy key--vert">5<span class="userText"></span></div>
+            <div data-key="Numpad2" class="key key--colour--green key--vert">2<span class="userText"></span></div>
+            <div data-key="Numpad0" class="key key--vert">0<span class="userText"></span></div>
+          </div>
+          <div class="keyboard__row keyboard__row--vertical">
+            <div data-key="PageUp" class="key key--vert">PGUP<span class="userText"></span></div>
+            <div data-key="NumpadMultiply" class="key key--vert">*<span class="userText"></span></div>
+            <div data-key="Numpad9" class="key key--colour--orange key--vert">9<span class="userText"></span></div>
+            <div data-key="Numpad6" class="key key--colour--blue key--vert">6<span class="userText"></span></div>
+            <div data-key="Numpad3" class="key key--vert">3<span class="userText"></span></div>
+            <div data-key="NumpadDecimal" class="key key--vert">.<span class="userText"></span></div>
+          </div>
+          <div class="keyboard__row keyboard__row--vertical">
+            <div data-key="PageDown" class="key key--vert">PGDN<span class="userText"></span></div>
+            <div data-key="NumpadSubtract" class="key key--vert">-<span class="userText"></span></div>
+            <div data-key="NumpadAdd" class="key vert-center key--vert key--5">+<span class="userText"></span></div>
+            <div data-key="NumpadEnter" class="key vert-center key--vert key--5">ENTER<span class="userText"></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </li>
+
     <!-- TODO: Create template chord section. -->
     <li id="templateChord" hidden></li>
 
@@ -1156,7 +1324,7 @@
 
   </ol>
 
-  <div class="addButtons keyboardBorderStyle ulButtons ThreeButtons">
+  <div class="addButtons keyboardBorderStyle ulButtons FourButtons">
     <ul>
       <li>
         <div id="AddSectionDivider" class="menukey text-lg vert-center text-center key--6">
@@ -1165,6 +1333,10 @@
       <li>
         <div id="AddKeyboard" class="menukey text-lg vert-center text-center key--6">
           Add Keyboard</div>
+      </li>
+      <li>
+        <div id="AddKeyboardLarge" class="menukey text-lg vert-center text-center key--6">
+          Add Large Keyboard</div>
       </li>
       <li>
         <div id="AddChordSection" class="menukey text-lg vert-center text-center key--6 key--disabled">

@@ -72,6 +72,9 @@
 .ThreeButtons {
   width: 421px;
 }
+.FourButtons {
+  width: 559px;
+}
 
 .keyboard::before {
   content: "";
