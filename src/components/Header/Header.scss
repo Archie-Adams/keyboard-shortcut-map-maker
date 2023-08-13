@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+
+    .keyboard-templates {
+        display: flex;
+        gap: 1rem;
+    }
+}

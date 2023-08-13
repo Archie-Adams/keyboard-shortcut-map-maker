@@ -1,0 +1,35 @@
+.keyboard {
+  .keyboard-name-container {
+    display: flex;
+
+    >input {
+      margin: 1rem 0;
+    }
+
+    >button {
+      margin-left: 1rem;
+      height: 1.5rem;
+      align-self: center;
+    }
+  }
+
+  .column-container {
+    display: flex;
+
+    .column {
+      display: flex;
+      flex-direction: column;
+
+      .key-row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: -webkit-min-content;
+        width: -moz-min-content;
+        width: min-content;
+        margin-bottom: 0.25rem;
+        position: relative;
+      }
+    }
+  }
+}

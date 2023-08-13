@@ -1,0 +1,67 @@
+h4 {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.modal-body {
+  color: black;
+  padding: 1rem;
+  position: absolute;
+  right: 100%;
+  z-index: 100;
+  background-color: #dcdcdc;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  border-radius: 0.5rem;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .key-edit-form {
+    display: flex;
+
+    .legend-edit-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-top: 0.25rem;
+      padding-left: 1rem;
+    }
+
+    .key.modal-key {
+      width: 16rem;
+      height: 16rem;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+
+      // TODO: sort out button resizing.
+      button {
+        background-color: rgba(197, 197, 197, 0.406);
+        border: 1px solid black;
+        margin: 2px;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.color-picker-area {
+  margin-bottom: 1rem;
+
+  .color-buttons {
+    display: flex;
+    gap: 0.5rem;
+
+    button {
+      font-weight: 700;
+      width: 2rem;
+      height: 2rem;
+      background-color: white;
+      border: 1px solid grey;
+      border-radius: 4px;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+.key {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+
+  cursor: pointer;
+
+  // overflow: hidden;
+
+  margin-right: 0.25rem;
+  padding: 0.15rem 0.1rem;
+  color: #06112e;
+  font-size: 1rem;
+  font-weight: 500;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  background: -webkit-gradient(linear, left top, right top, from(#e1e1e1), color-stop(30%, #f0f0f0), color-stop(60%, #f0f0f0), to(#e6e6e6));
+  background: linear-gradient(90deg, #e1e1e1 0%, #f0f0f0 30%, #f0f0f0 60%, #e6e6e6);
+
+  border-radius: 0.3125rem 0.3125rem 0.5rem 0.5rem;
+  border-top: 0.15rem solid #d7d7d7;
+  border-right: 0.35rem solid gainsboro;
+  border-left: 0.35rem solid gainsboro;
+  border-bottom: 0.6rem solid #cfcfcf;
+  -webkit-box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5),
+    inset -1px -1px 5px 0 #f3f3f3;
+  box-shadow: 0.25rem 0.25rem 1rem 0rem rgba(23, 38, 53, 0.5),
+    inset -1px -1px 5px 0 #f3f3f3;
+}
+
+.key.standard {
+  .legends {
+    .legend {
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      >span {
+        font-size: 14px;
+      }
+    }
+
+    >:nth-child(3n+1) {
+      text-align: start;
+    }
+
+    >:nth-child(3n+2) {
+      text-align: center;
+    }
+
+    >:nth-child(3n+3) {
+      text-align: end;
+
+      >span {
+        padding-right: 3px;
+      }
+    }
+
+    >:nth-child(1),
+    >:nth-child(2),
+    >:nth-child(3) {
+      justify-content: start;
+    }
+
+    >:nth-child(4),
+    >:nth-child(5),
+    >:nth-child(6) {
+      justify-content: center;
+    }
+
+    >:nth-child(7),
+    >:nth-child(8),
+    >:nth-child(9) {
+      justify-content: end;
+    }
+  }
+}
