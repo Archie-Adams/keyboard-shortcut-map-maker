@@ -1,8 +1,12 @@
-import React, { useState, useContext, useEffect, useRef, CSSProperties } from 'react';
+import React, {
+  useState, useContext, useEffect, useRef, CSSProperties,
+} from 'react';
 import { coral, navy, green, orange, blue } from './colors';
-import { IKeyLegends, IKey } from '../../types';
 import { KeyboardContext, IKeyboardContext } from '../../Keyboard';
+import { IKeyLegends, IKey } from '../../types';
 import './KeyEditModal.scss';
+
+// TODO: Needs renaming from modal.
 
 interface IProps {
   key_: IKey | null;
@@ -117,6 +121,7 @@ const KeyEditModal = (
               );
             }}
           />
+          {/* TODO: Maybe get rid of these in the initial one and have the input for text be in the button. */}
           <input type="text" placeholder="#000000" disabled />
           <input type="text" placeholder="font" disabled />
           <input type="text" placeholder="size" disabled />

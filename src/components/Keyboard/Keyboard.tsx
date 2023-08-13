@@ -1,7 +1,6 @@
 import React, { useState, createContext } from 'react';
 import useKeyboard from './useKeyboard';
 import Key from './Components/Key/Key';
-import KeyEditModal from './Components/KeyEditModal/KeyEditModal';
 import { IKeyboard, KeyboardRowType, IKey, IKeyboardInstance } from './types';
 import './Keyboard.scss';
 
@@ -20,6 +19,7 @@ const Keyboard = ({ keyboard: keyboard_ }: IProps) => {
   const [editingName, setEditingName] = useState(false);
 
   return (
+    // TODO: Case and background color for keyboard.
     <div className="keyboard" key={keyboard.id}>
       {editingName
         ? (
