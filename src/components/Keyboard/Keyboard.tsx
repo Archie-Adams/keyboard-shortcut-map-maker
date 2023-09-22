@@ -21,23 +21,30 @@ const Keyboard = ({ keyboard: keyboard_ }: IProps) => {
   return (
     // TODO: Case and background color for keyboard.
     <div className="keyboard" key={keyboard.id}>
-      {editingName
-        ? (
-          <div className='keyboard-name-container'>
-            <input
-              type="text"
-              value={keyboard.name}
-              onChange={(e) => keyboard.setKeyboardName(e.target.value)}
-            />
-            <button onClick={() => setEditingName(false)}>Stop Editing</button>
-          </div>
-        )
-        : (
-          <div className='keyboard-name-container'>
-            <h3>{keyboard.name}</h3>
-            <button onClick={() => setEditingName(true)}>Edit Name</button>
-          </div>
-        )}
+      <div className="keyboard-header">
+        {editingName
+          ? (
+            <div className='keyboard-name-container'>
+              <input
+                type="text"
+                value={keyboard.name}
+                onChange={(e) => keyboard.setKeyboardName(e.target.value)}
+                />
+              <button onClick={() => setEditingName(false)}>
+                Stop Editing
+              </button>
+            </div>
+          )
+          : (
+            <div className='keyboard-name-container'>
+              <h3>{keyboard.name}</h3>
+              <button onClick={() => setEditingName(true)}>Edit Name</button>
+            </div>
+          )}
+          <button onClick={() => keyboard.removeKeyboard()}>
+            Delete Keyboard
+          </button>
+      </div>
       <div className="column-container">
         <KeyboardContext.Provider value={{ keyboard }}>
           {keyboard.columns.map((column, columnIndex) => (

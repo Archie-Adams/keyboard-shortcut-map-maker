@@ -11,3 +11,5 @@ interface IAppContext extends IAppContextContent {
 }
 
 export type { IAppContextContent, IAppContext };
+
+// TODO: Include two example contexts... one as the default?

@@ -45,7 +45,11 @@ function App() {
         })
       }
 
+      {/* TODO: Modal with DnD for re-ordering keyboard list. */}
+
       {/* TODO: Footer. */}
+
+      {/* TODO: Leaving this page will cause you to loose changes if you have not saved! */}
 
     </AppContext.Provider>
   );

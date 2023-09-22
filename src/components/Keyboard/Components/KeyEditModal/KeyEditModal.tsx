@@ -75,25 +75,46 @@ const KeyEditModal = (
         <h4>Change Key Colour</h4>
         <div className="color-buttons">
           <button
-            style={{ backgroundColor: coral.color }}
+            className="key"
+            onClick={() => setKeyStyle(key, {})}
+          >
+            Default
+          </button>
+          <button
+            className="key"
+            style={coral.style}
             onClick={() => setKeyStyle(key, coral.style)}
-          />
+          >
+            Coral
+          </button>
           <button
-            style={{ backgroundColor: navy.color }}
+            className="key"
+            style={navy.style}
             onClick={() => setKeyStyle(key, navy.style)}
-          />
+          >
+            Navy
+          </button>
           <button
-            style={{ backgroundColor: green.color }}
+            className="key"
+            style={green.style}
             onClick={() => setKeyStyle(key, green.style)}
-          />
+          >
+            Green
+          </button>
           <button
-            style={{ backgroundColor: orange.color }}
+            className="key"
+            style={orange.style}
             onClick={() => setKeyStyle(key, orange.style)}
-          />
+          >
+            Orange
+          </button>
           <button
-            style={{ backgroundColor: blue.color }}
+            className="key"
+            style={blue.style}
             onClick={() => setKeyStyle(key, blue.style)}
-          />
+          >
+            Blue
+          </button>
         </div>
       </div>
       <h4>Edit Legend Properties</h4>

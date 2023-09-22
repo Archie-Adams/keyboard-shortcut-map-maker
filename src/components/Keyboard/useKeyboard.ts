@@ -33,6 +33,12 @@ const useKeyboard = (keyboard_: IKeyboard): IKeyboardInstance => {
     setKeyboard(oldState => ({ ...oldState, columns }));
   };
 
+  const removeKeyboard = () => {
+    let keyboards = appContext.keyboards;
+    keyboards.splice(keyboardIndex, 1);
+    setContext({...appContext, keyboards});
+  };
+
   const updateKey = (newKey: IKey): void => {
     let newKeyboard = { ...keyboard };
     newKeyboard.columns.forEach(column => column.forEach(row => {
@@ -73,6 +79,7 @@ const useKeyboard = (keyboard_: IKeyboard): IKeyboardInstance => {
     setKeyboardName,
     setKeyboardBackgroundColor,
     setKeyboardColumns,
+    removeKeyboard,
     setKeyLegendText,
     setKeyLegendSize,
     setKeyLegendColor,

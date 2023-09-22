@@ -25,6 +25,8 @@ interface IKey {
   // TODO: Height;
   legends: IKeyLegends;
   style: CSSProperties;
+  // TODO: Have a separate color style and custom style
+  // TODO: or better have  
   spaceRight?: number;
   spaceLeft?: number;
 }
@@ -63,6 +65,7 @@ interface IKeyboardInstance extends IKeyboard {
   setKeyboardName: (name: string) => void;
   setKeyboardBackgroundColor: (backgroundColor: string) => void;
   setKeyboardColumns: (columns: KeyboardColumn[]) => void;
+  removeKeyboard: () => void;
   setKeyLegendText: (key: IKey, legend: keyof IKeyLegends, text: string) => void;
   setKeyLegendSize: (key: IKey, legend: keyof IKeyLegends, size: number) => void;
   setKeyLegendColor: (key: IKey, legend: keyof IKeyLegends, color: string) => void;
