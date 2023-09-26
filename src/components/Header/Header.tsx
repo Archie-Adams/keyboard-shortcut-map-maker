@@ -81,21 +81,44 @@ const Header = () => {
             )}`;
             const link = document.createElement("a");
             link.href = jsonString;
-            link.download = "data.json";
+            link.download = `${context.title}.json`;
             link.click();
           }}
         >
           Save to file
         </button>
-        <button
-          type="button"
-          onClick={() => {
-            // {/* TODO: Load from JSON file. */ }
-          }}
-          disabled
+        <label
+          htmlFor="selectFile"
+          className="load-file"
         >
-          Load from file
-        </button>
+          Load Map From File
+        </label>
+        <input
+          type="file"
+          id="selectFile"
+          onChange={(event) => {
+            var fr = new FileReader();
+
+            fr.onload = (e) => {
+              console.log(e);
+              if (typeof e.target?.result !== 'string') {
+                alert('Error loading file.');
+                return;
+              }
+              try {
+                var result = JSON.parse(e.target.result);
+                console.log(JSON.stringify(result, null, 2));
+                // TODO: No check for right format.
+                setContext(result);
+              } catch (error) {
+                alert('Error parsing file.');
+              }
+            }
+
+            var file = event.target.files?.item(0);
+            if (!file) { return false; }
+            fr.readAsText(file);
+          }} />
       </div>
 
       {/* TODO: Save context in session? + a clear all context button. */}

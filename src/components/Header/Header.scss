@@ -7,4 +7,13 @@
         display: flex;
         gap: 1rem;
     }
+
+    #selectFile {
+        display: none;
+    }
+
+    .load-file {
+        background-color: #eeee;
+        border: 1px solid black;
+    }
 }
