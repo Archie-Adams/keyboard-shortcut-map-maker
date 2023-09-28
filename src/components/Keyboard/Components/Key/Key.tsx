@@ -72,6 +72,7 @@ const Key = ({
       <KeyEditModal
         key_={isKeyEditModalOpen}
         onClose={() => { setIsKeyEditModalOpen(null); }}
+        // TODO: Do the same for display above or below key.
         displayLeft={keyLeft < window.innerWidth / 2}
       />
     </div>

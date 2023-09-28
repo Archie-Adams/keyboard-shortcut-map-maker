@@ -1,4 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { FaFileDownload, FaFileUpload, FaPlus } from "react-icons/fa";
+import { GrOrderedList } from "react-icons/gr";
 import { v4 as uuid } from 'uuid';
 import fortyPercent from '../Keyboard/Templates/fortyPercent';
 import testColumns from '../Keyboard/Templates/testColumns';
@@ -10,6 +12,7 @@ import { IAppContext } from '../../AppContext';
 import './Header.scss';
 
 const Header = () => {
+  const [showReorderModal, setShowReorderModal] = useState(false);
   const { setContext, ...context } = useContext(AppContext) as IAppContext;
 
   // TODO: Better way of deep cloning needed.
@@ -38,106 +41,110 @@ const Header = () => {
   });
 
   return (
-    <header className="header">
+    <>
+      <hr />
+      <div className="header">
 
-      <input
-        type="text"
-        value={context.title}
-        onChange={(e) => setContext({ ...context, title: e.target.value })}
-      />
+        <div className="keyboard-templates">
+          <button
+            className="icon-button"
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              let oldContext = { ...context };
+              oldContext.keyboards.push(instantiateKeyboard(fortyPercent));
+              setContext(oldContext);
+            }}
+          >
+            <FaPlus /> 40% Keyboard
+          </button>
 
-      <div className="keyboard-templates">
-        <button
-          type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            let oldContext = { ...context };
-            oldContext.keyboards.push(instantiateKeyboard(fortyPercent));
-            setContext(oldContext);
-          }}
-        >
-          Add 40% Keyboard
-        </button>
+          <button
+            className="icon-button"
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              let oldContext = { ...context };
+              oldContext.keyboards.push(instantiateKeyboard(testColumns));
+              setContext(oldContext);
+            }}
+          >
+            <FaPlus /> Test Columns
+          </button>
+        </div>
 
-        <button
-          type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            let oldContext = { ...context };
-            oldContext.keyboards.push(instantiateKeyboard(testColumns));
-            setContext(oldContext);
-          }}
-        >
-          Add Test Columns
-        </button>
+        <div className="save-controls">
+          <button
+            type="button"
+            className="icon-button"
+            onClick={() => {
+              const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
+                JSON.stringify(context)
+              )}`;
+              const link = document.createElement("a");
+              link.href = jsonString;
+              link.download = `${context.title}.json`;
+              link.click();
+            }}
+          >
+            <FaFileDownload />Save Map
+          </button>
+          <label
+            className="icon-button"
+            htmlFor="selectFile"
+          >
+            <FaFileUpload />Load Map
+          </label>
+          <input
+            type="file"
+            id="selectFile"
+            onChange={(event) => {
+              var fr = new FileReader();
+
+              fr.onload = (e) => {
+                console.log(e);
+                if (typeof e.target?.result !== 'string') {
+                  alert('Error loading file.');
+                  return;
+                }
+                try {
+                  var result = JSON.parse(e.target.result);
+                  console.log(JSON.stringify(result, null, 2));
+                  // TODO: No check for right format.
+                  setContext(result);
+                } catch (error) {
+                  alert('Error parsing file.');
+                }
+              }
+
+              var file = event.target.files?.item(0);
+              if (!file) { return false; }
+              fr.readAsText(file);
+            }} />
+        </div>
+
+        {/* TODO: Save context in session? + a clear all context button. */}
+        {/* TODO: Print button and css */}
       </div>
-
-      <div className="save-controls">
-        <button
-          type="button"
-          onClick={() => {
-            const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
-              JSON.stringify(context)
-            )}`;
-            const link = document.createElement("a");
-            link.href = jsonString;
-            link.download = `${context.title}.json`;
-            link.click();
-          }}
-        >
-          Save to file
-        </button>
-        <label
-          htmlFor="selectFile"
-          className="load-file"
-        >
-          Load Map From File
-        </label>
+      <hr />
+      <div className="map-title-container">
         <input
-          type="file"
-          id="selectFile"
-          onChange={(event) => {
-            var fr = new FileReader();
-
-            fr.onload = (e) => {
-              console.log(e);
-              if (typeof e.target?.result !== 'string') {
-                alert('Error loading file.');
-                return;
-              }
-              try {
-                var result = JSON.parse(e.target.result);
-                console.log(JSON.stringify(result, null, 2));
-                // TODO: No check for right format.
-                setContext(result);
-              } catch (error) {
-                alert('Error parsing file.');
-              }
-            }
-
-            var file = event.target.files?.item(0);
-            if (!file) { return false; }
-            fr.readAsText(file);
-          }} />
+          type="text"
+          className="map-title"
+          value={context.title}
+          onChange={(e) => setContext({ ...context, title: e.target.value })}
+        />
+        <button
+          className="icon-button"
+          onClick={() => {
+            setShowReorderModal(true);
+            // TODO: display modal
+          }}
+        >
+          <GrOrderedList />
+        </button>
       </div>
-
-      {/* TODO: Save context in session? + a clear all context button. */}
-
-      {/* <button
-        type="button"
-        onClick={() => {
-          const location = window.location.href.split('?')[0];
-          const queryString = encodeURIComponent(JSON.stringify(context));
-          const url = `${location}?context=${queryString}`;
-          navigator.clipboard.writeText(url);
-          alert('Link copied to clipboard!');
-        }}
-      >
-        Save to URL
-      </button> */}
-
-      {/* TODO: Print button and css */}
-    </header>
+    </>
   );
 };
 

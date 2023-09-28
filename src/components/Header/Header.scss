@@ -1,19 +1,79 @@
 .header {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin: 0 0.5rem;
+
+  .keyboard-templates {
     display: flex;
     gap: 1rem;
-    justify-content: space-between;
+  }
 
-    .keyboard-templates {
-        display: flex;
-        gap: 1rem;
-    }
+  #selectFile {
+    display: none;
+  }
 
-    #selectFile {
-        display: none;
-    }
+  .save-controls {
+    display: flex;
+  }
 
-    .load-file {
-        background-color: #eeee;
-        border: 1px solid black;
+  label.icon-button {
+    margin-left: 1rem;
+    padding-top: calc(0.25rem + 1px);
+  }
+}
+
+.icon-button {
+  padding: 0.25rem;
+  background-color: transparent;
+  border: 1px solid lightgray;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  text-align: center;
+  border-radius: .25rem;
+
+  svg {
+    margin-top: 1px;
+    margin-right: 0.25rem;
+  }
+}
+
+.map-title-container {
+  display: flex;
+  margin-top: 0.75rem;
+  gap: 1rem;
+  width: 80%;
+  margin-left: 10%;
+
+  button {
+    height: 3.1rem;
+    width: 3rem;
+    font-size: 2rem;
+
+    svg {
+      margin-right: 0;
     }
+  }
+}
+
+.map-title {
+  border: 1px solid lightgray;
+  border-radius: .25rem;
+  background-color: transparent;
+  font-size: 1.5rem;
+  height: 3rem;
+  padding: 0;
+  padding-left: 0.75rem;
+  flex-grow: 1;
+}
+
+.map-title:hover,
+.icon-button:hover {
+  background-color: lightgray;
+  border-color: gray;
+}
+
+.icon-button:hover {
+  cursor: pointer;
 }

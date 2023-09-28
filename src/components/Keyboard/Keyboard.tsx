@@ -1,4 +1,5 @@
 import React, { useState, createContext } from 'react';
+import { FaTrash } from "react-icons/fa6";
 import useKeyboard from './useKeyboard';
 import Key from './Components/Key/Key';
 import { IKeyboard, KeyboardRowType, IKey, IKeyboardInstance } from './types';
@@ -16,35 +17,24 @@ export const KeyboardContext = createContext<IKeyboardContext | null>(null);
 
 const Keyboard = ({ keyboard: keyboard_ }: IProps) => {
   const keyboard = useKeyboard(keyboard_);
-  const [editingName, setEditingName] = useState(false);
+  // const [editingName, setEditingName] = useState(false);
 
   return (
-    // TODO: Case and background color for keyboard.
+    // TODO: Editable background color for keyboard.
     <div className="keyboard" key={keyboard.id}>
+
       <div className="keyboard-header">
-        {editingName
-          ? (
-            <div className='keyboard-name-container'>
-              <input
-                type="text"
-                value={keyboard.name}
-                onChange={(e) => keyboard.setKeyboardName(e.target.value)}
-                />
-              <button onClick={() => setEditingName(false)}>
-                Stop Editing
-              </button>
-            </div>
-          )
-          : (
-            <div className='keyboard-name-container'>
-              <h3>{keyboard.name}</h3>
-              <button onClick={() => setEditingName(true)}>Edit Name</button>
-            </div>
-          )}
-          <button onClick={() => keyboard.removeKeyboard()}>
-            Delete Keyboard
-          </button>
+        <input
+          type="text"
+          value={keyboard.name}
+          className="name"
+          onChange={(e) => keyboard.setKeyboardName(e.target.value)}
+        />
+        <button className="delete" onClick={() => keyboard.removeKeyboard()}>
+          <FaTrash />
+        </button>
       </div>
+
       <div className="column-container">
         <KeyboardContext.Provider value={{ keyboard }}>
           {keyboard.columns.map((column, columnIndex) => (

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+
+body,
+#root {
+  min-height: 100vh;
+  margin: 0;
+}
+
+hr {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+header {
+  display: flex;
+  margin: 0.5rem;
+  margin-bottom: 1rem;
+
+  .logo {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  p {
+    margin: 0 0 0 1rem;
+    align-self: center;
+    font-size: 4rem;
+    font-family: 'Sedgwick Ave Display', cursive;
+
+    .title-span-container {
+      position: relative;
+      width: 0;
+      height: 0;
+
+      .title-span {
+        position: absolute;
+        top: 4.25rem;
+        left: -9rem;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.keyboard-section {
+  // padding-bottom: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.keyboard-section.odd {
+  // background-color: rgb(237, 243, 236);
+}
+
+.keyboard-section.even {
+  // background-color: rgb(223, 229, 222);
+}
+
+footer {
+  margin-top: 1.25rem;
+  background-color: #eee;
+  padding: 1rem;
+  padding-bottom: 0.75rem;
+
+  .github-buttons {
+    margin-top: 0.75rem;
+  }
+
+  p {
+    margin: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+}
