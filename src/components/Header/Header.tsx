@@ -7,6 +7,7 @@ import testColumns from '../Keyboard/Templates/testColumns';
 import {
   KeyboardRowType, IKeyboardTemplate, IKeyboard,
 } from '../Keyboard/types';
+import Modal from '../Modal/Modal';
 import { AppContext } from '../../App';
 import { IAppContext } from '../../AppContext';
 import './Header.scss';
@@ -144,6 +145,15 @@ const Header = () => {
           <GrOrderedList />
         </button>
       </div>
+      <Modal
+        title="Reorder Keyboards"
+        isOpen={showReorderModal}
+        onClose={() => { setShowReorderModal(false); }}
+      >
+        <div>
+          <p>hehehfse</p>
+        </div>
+      </Modal>
     </>
   );
 };
