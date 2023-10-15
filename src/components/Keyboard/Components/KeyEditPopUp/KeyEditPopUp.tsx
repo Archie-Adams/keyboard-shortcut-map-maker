@@ -4,9 +4,7 @@ import React, {
 import { coral, navy, green, orange, blue } from './colors';
 import { KeyboardContext, IKeyboardContext } from '../../Keyboard';
 import { IKeyLegends, IKey } from '../../types';
-import './KeyEditModal.scss';
-
-// TODO: Needs renaming from modal.
+import './KeyEditPopUp.scss';
 
 interface IProps {
   key_: IKey | null;
@@ -14,7 +12,7 @@ interface IProps {
   displayLeft: boolean;
 }
 
-const KeyEditModal = (
+const KeyEditPopUp = (
   { key_: key, onClose, displayLeft }: IProps
 ) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -64,7 +62,7 @@ const KeyEditModal = (
 
   return (
     <div
-      className="modal-body"
+      className="pop-up-body"
       ref={ref}
       style={{
         left: displayLeft ? 'calc(100% + 0.75rem)' : '',
@@ -120,7 +118,7 @@ const KeyEditModal = (
       <h4>Edit Legend Properties</h4>
       <div className="key-edit-form">
         <div>
-          <div className="key modal-key" style={legendKeyStyle}>
+          <div className="key pop-up-key" style={legendKeyStyle}>
             {legendKeys.map((legendKey) => (
               <button
                 onClick={() => { setSelectedLegend(legendKey); }}
@@ -152,4 +150,4 @@ const KeyEditModal = (
   );
 };
 
-export default KeyEditModal;
+export default KeyEditPopUp;

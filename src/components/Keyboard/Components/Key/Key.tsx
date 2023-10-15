@@ -1,5 +1,5 @@
 import React, { CSSProperties, useState, useRef } from "react";
-import KeyEditModal from "../KeyEditModal/KeyEditModal";
+import KeyEditPopUp from "../KeyEditPopUp/KeyEditPopUp";
 import { IKeyLegend, IKey } from '../../types';
 import './Key.scss';
 
@@ -26,7 +26,7 @@ const Key = ({
   const keyLeft = ref?.current?.getBoundingClientRect().left ?? 0;
 
   const [
-    isKeyEditModalOpen, setIsKeyEditModalOpen,
+    isKeyEditPopUpOpen, setIsKeyEditPopUpOpen,
   ] = useState<IKey | null>(null);
 
   let styles: CSSProperties = {
@@ -55,7 +55,7 @@ const Key = ({
       style={styles}
       onClick={() => {
         // TODO: Animation and sound.
-        setIsKeyEditModalOpen(key);
+        setIsKeyEditPopUpOpen(key);
       }}
     >
       <div className="legends">
@@ -69,9 +69,9 @@ const Key = ({
         <Legend keyLegend={key.legends.bottomMiddle} />
         <Legend keyLegend={key.legends.bottomRight} />
       </div>
-      <KeyEditModal
-        key_={isKeyEditModalOpen}
-        onClose={() => { setIsKeyEditModalOpen(null); }}
+      <KeyEditPopUp
+        key_={isKeyEditPopUpOpen}
+        onClose={() => { setIsKeyEditPopUpOpen(null); }}
         // TODO: Do the same for display above or below key.
         displayLeft={keyLeft < window.innerWidth / 2}
       />

@@ -2,6 +2,7 @@ import React, { useState, createContext } from 'react';
 import GitHubButton from 'react-github-btn'
 import Keyboard from './components/Keyboard/Keyboard';
 import Header from './components/Header/Header';
+import Modal from './components/Modal/Modal';
 import './App.scss';
 import { defaultContext } from './defaultContext';
 import { IAppContext, IAppContextContent } from './AppContext';
@@ -25,6 +26,8 @@ function App() {
     e.preventDefault();
     e.returnValue = '';
   });
+
+  const [isWelcomModalOpen, setIsWelcomeModalOpen] = useState(true);
 
   return (
     <AppContext.Provider value={{ ...context, setContext }}>
@@ -57,14 +60,14 @@ function App() {
         </div>
       ))}
 
-      {/* TODO: Modal with DnD for re-ordering keyboard list. */}
-
       <footer>
         <p>
+          {/* TODO: have version number in one place in the html header. Can be used for welcome popup and script versioning then. */}
           Keyboard Shortcut Map Maker v2.0.0 (
           <a
             href="https://github.com/Archie-Adams/keyboard-shortcut-map-maker#readme"
             target="_blank"
+            rel="noreferrer"
           >
             changelog
           </a>
@@ -76,6 +79,7 @@ function App() {
           <a
             href="https://github.com/Archie-Adams/keyboard-shortcut-map-maker/blob/master/LICENSE"
             target="_blank"
+            rel="noreferrer"
           >
             LICENCE
           </a>
@@ -85,19 +89,35 @@ function App() {
         <div>
           <p>
             Contacts/Socials:{' '}
-            <a target="_blank" href="https://archieada.ms">
+            <a
+              target="_blank"
+              href="https://archieada.ms"
+              rel="noreferrer"
+            >
               Personal Website
             </a>
             {' '}&bull;{' '}
-            <a target="_blank" href="https://linkedin.com/in/archie-adams">
+            <a
+              target="_blank"
+              href="https://linkedin.com/in/archie-adams"
+              rel="noreferrer"
+            >
               LinkedIn
             </a>
             {' '}&bull;{' '}
-            <a target="_blank" href="mailto:archiea2002@gmail.com">
+            <a
+              target="_blank"
+              href="mailto:archiea2002@gmail.com"
+              rel="noreferrer"
+            >
               Email
             </a>
             {' '}&bull;{' '}
-            <a target="_blank" href="https://github.com/Archie-Adams">
+            <a
+              target="_blank"
+              href="https://github.com/Archie-Adams"
+              rel="noreferrer"
+            >
               GitHub
             </a>
           </p>
@@ -128,7 +148,27 @@ function App() {
             Stars
           </GitHubButton>
         </p>
+        <button onClick={() => setIsWelcomeModalOpen(true)}>
+          Help!
+        </button>
       </footer>
+
+      <Modal
+        title="Welcome!"
+        isOpen={isWelcomModalOpen}
+        onClose={() => { setIsWelcomeModalOpen(false); }}
+      >
+        <div>
+          <p>Hi there, and welcome to Keyboard Shortcut Map Maker Version 2!!!</p>
+          <p>
+            If you've used the old version and are wanting to load your old
+            files, <a href="/legacy-site.html">the legacy version is still hosted here!</a>
+          </p>
+          <br />
+          <input id="dont-show-again" type="checkbox"></input>
+          <label htmlFor="dont-show-again">Please don't show this message again.</label>
+        </div>
+      </Modal>
 
     </AppContext.Provider >
   );

@@ -145,6 +145,7 @@ const Header = () => {
           <GrOrderedList />
         </button>
       </div>
+      {/* TODO: Modal with DnD for re-ordering keyboard list. */}
       <Modal
         title="Reorder Keyboards"
         isOpen={showReorderModal}

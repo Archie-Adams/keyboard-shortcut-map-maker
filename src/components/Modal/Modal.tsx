@@ -41,10 +41,7 @@ const Modal = ({ isOpen, onClose, title, children }: IProps) => {
           <h4>{title}</h4>
           <button onClick={onClose}>Close</button>
         </div>
-        <div className="x-modal-body">
-          {children}
-          hi
-        </div>
+        {children}
       </div>
     </div>
   );
