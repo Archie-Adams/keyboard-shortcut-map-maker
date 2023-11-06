@@ -1,6 +1,8 @@
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Farchie-adams.github.io%2Fkeyboard-shortcut-map-maker%2F)
 ![GitHub](https://img.shields.io/github/license/archie-adams/keyboard-shortcut-map-maker)
 
+## *Version 2 Coming soon!*
+
 # Keyboard Shortcut Map Maker
 
 This is a website tool for creating a visual map/image of keyboard shortcuts or keybindings.  
