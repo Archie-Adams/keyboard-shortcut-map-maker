@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useRef } from 'react';
 import GitHubButton from 'react-github-btn'
 import Keyboard from './components/Keyboard/Keyboard';
 import Header from './components/Header/Header';
@@ -13,6 +13,7 @@ const AppContext = createContext<IAppContext | null>(null);
 // TODO: Help pop up with do not show again option for tutorial and updates? Has a version and if the pop up has a version higher than saved show again.
 
 function App() {
+  const showAgainRef = useRef<HTMLInputElement>(null);
   // let defaultContext: IAppContextContent = {
   //   title: 'Untitled Keyboard Map',
   //   keyboards: [],
@@ -27,7 +28,9 @@ function App() {
     e.returnValue = '';
   });
 
-  const [isWelcomModalOpen, setIsWelcomeModalOpen] = useState(true);
+  const [
+    isWelcomeModalOpen, setIsWelcomeModalOpen,
+  ] = useState(localStorage.getItem("lastDontShowModalVersion") !== "1"); // TODO: use single app version
 
   return (
     <AppContext.Provider value={{ ...context, setContext }}>
@@ -155,8 +158,14 @@ function App() {
 
       <Modal
         title="Welcome!"
-        isOpen={isWelcomModalOpen}
-        onClose={() => { setIsWelcomeModalOpen(false); }}
+        isOpen={isWelcomeModalOpen}
+        onClose={() => {
+          setIsWelcomeModalOpen(false);
+          if (showAgainRef?.current) {
+            if (!showAgainRef.current.checked) return;
+            localStorage.setItem("lastDontShowModalVersion", "1"); // TODO: use single prod version here so can be used for changelog
+          }
+        }}
       >
         <div>
           <p>Hi there, and welcome to Keyboard Shortcut Map Maker Version 2!!!</p>
@@ -165,8 +174,8 @@ function App() {
             files, <a href="/legacy-site.html">the legacy version is still hosted here!</a>
           </p>
           <br />
-          <input id="dont-show-again" type="checkbox"></input>
-          <label htmlFor="dont-show-again">Please don't show this message again.</label>
+          <input ref={showAgainRef} id="dont-show-again" type="checkbox"></input>
+          <label htmlFor="dont-show-again">Please don't show this message again. (Uses Cookies)</label>
         </div>
       </Modal>
 
